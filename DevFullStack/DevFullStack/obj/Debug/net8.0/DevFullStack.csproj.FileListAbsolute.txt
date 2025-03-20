@@ -1,0 +1,15 @@
+E:\tamdc\.NETFullStack\DevFullStack\DevFullStack\bin\Debug\net8.0\DevFullStack.exe
+E:\tamdc\.NETFullStack\DevFullStack\DevFullStack\bin\Debug\net8.0\DevFullStack.deps.json
+E:\tamdc\.NETFullStack\DevFullStack\DevFullStack\bin\Debug\net8.0\DevFullStack.runtimeconfig.json
+E:\tamdc\.NETFullStack\DevFullStack\DevFullStack\bin\Debug\net8.0\DevFullStack.dll
+E:\tamdc\.NETFullStack\DevFullStack\DevFullStack\bin\Debug\net8.0\DevFullStack.pdb
+E:\tamdc\.NETFullStack\DevFullStack\DevFullStack\obj\Debug\net8.0\DevFullStack.GeneratedMSBuildEditorConfig.editorconfig
+E:\tamdc\.NETFullStack\DevFullStack\DevFullStack\obj\Debug\net8.0\DevFullStack.AssemblyInfoInputs.cache
+E:\tamdc\.NETFullStack\DevFullStack\DevFullStack\obj\Debug\net8.0\DevFullStack.AssemblyInfo.cs
+E:\tamdc\.NETFullStack\DevFullStack\DevFullStack\obj\Debug\net8.0\DevFullStack.csproj.CoreCompileInputs.cache
+E:\tamdc\.NETFullStack\DevFullStack\DevFullStack\obj\Debug\net8.0\DevFullStack.sourcelink.json
+E:\tamdc\.NETFullStack\DevFullStack\DevFullStack\obj\Debug\net8.0\DevFullStack.dll
+E:\tamdc\.NETFullStack\DevFullStack\DevFullStack\obj\Debug\net8.0\refint\DevFullStack.dll
+E:\tamdc\.NETFullStack\DevFullStack\DevFullStack\obj\Debug\net8.0\DevFullStack.pdb
+E:\tamdc\.NETFullStack\DevFullStack\DevFullStack\obj\Debug\net8.0\DevFullStack.genruntimeconfig.cache
+E:\tamdc\.NETFullStack\DevFullStack\DevFullStack\obj\Debug\net8.0\ref\DevFullStack.dll
