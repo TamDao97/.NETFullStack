@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D1BFDCD8-F372-46A9-BA69-2D8A9BD761C8}|DevFullStack\\DevFullStack.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\devfullstack\\buoi1_tamdc_bak1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1BFDCD8-F372-46A9-BA69-2D8A9BD761C8}|DevFullStack\\DevFullStack.csproj|solutionrelative:devfullstack\\buoi1_tamdc_bak1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1BFDCD8-F372-46A9-BA69-2D8A9BD761C8}|DevFullStack\\DevFullStack.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\devfullstack\\buoi1_btvn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1BFDCD8-F372-46A9-BA69-2D8A9BD761C8}|DevFullStack\\DevFullStack.csproj|solutionrelative:devfullstack\\buoi1_btvn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D1BFDCD8-F372-46A9-BA69-2D8A9BD761C8}|DevFullStack\\DevFullStack.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\devfullstack\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D1BFDCD8-F372-46A9-BA69-2D8A9BD761C8}|DevFullStack\\DevFullStack.csproj|solutionrelative:devfullstack\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D1BFDCD8-F372-46A9-BA69-2D8A9BD761C8}|DevFullStack\\DevFullStack.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\devfullstack\\buoi1_tamdc_bak.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1BFDCD8-F372-46A9-BA69-2D8A9BD761C8}|DevFullStack\\DevFullStack.csproj|solutionrelative:devfullstack\\buoi1_tamdc_bak.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1BFDCD8-F372-46A9-BA69-2D8A9BD761C8}|DevFullStack\\DevFullStack.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\devfullstack\\buoi1_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1BFDCD8-F372-46A9-BA69-2D8A9BD761C8}|DevFullStack\\DevFullStack.csproj|solutionrelative:devfullstack\\buoi1_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -42,62 +42,41 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Buoi1_TAMDC_BAK1.cs",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\Buoi1_TAMDC_BAK1.cs",
-              "RelativeDocumentMoniker": "DevFullStack\\Buoi1_TAMDC_BAK1.cs",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\Buoi1_TAMDC_BAK1.cs",
-              "RelativeToolTip": "DevFullStack\\Buoi1_TAMDC_BAK1.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAoAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-22T10:27:24.151Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Buoi1_TAMDC_BAK.cs",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\Buoi1_TAMDC_BAK.cs",
-              "RelativeDocumentMoniker": "DevFullStack\\Buoi1_TAMDC_BAK.cs",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\Buoi1_TAMDC_BAK.cs",
-              "RelativeToolTip": "DevFullStack\\Buoi1_TAMDC_BAK.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAgAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-22T10:03:09.622Z"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "8eaf78bd-f4cd-4717-904a-757fcc1a6f72",
-        "Display": 0,
-        "X": 473,
-        "Y": 131,
-        "Width": 1932,
-        "Height": 1043,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\Program.cs",
               "RelativeDocumentMoniker": "DevFullStack\\Program.cs",
               "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\Program.cs",
               "RelativeToolTip": "DevFullStack\\Program.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAA8AAAAXAAAA",
+              "ViewState": "AQIAABMAAAAAAAAAAAAAAB8AAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-22T09:34:06.517Z",
+              "WhenOpened": "2025-03-23T03:54:12.765Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Buoi1_Btvn.cs",
+              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\Buoi1_Btvn.cs",
+              "RelativeDocumentMoniker": "DevFullStack\\Buoi1_Btvn.cs",
+              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\Buoi1_Btvn.cs",
+              "RelativeToolTip": "DevFullStack\\Buoi1_Btvn.cs",
+              "ViewState": "AQIAADIAAAAAAAAAAAAAAEIAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-23T03:53:05.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Buoi1_Class.cs",
+              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\Buoi1_Class.cs",
+              "RelativeDocumentMoniker": "DevFullStack\\Buoi1_Class.cs",
+              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\Buoi1_Class.cs",
+              "RelativeToolTip": "DevFullStack\\Buoi1_Class.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-22T10:03:09.622Z"
             }
           ]
         }

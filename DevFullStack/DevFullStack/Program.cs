@@ -17,11 +17,17 @@
 //quan.SetOld(22);
 //quan.DisplayName();
 
-Dog dog = new Dog();
-dog.Name = "Dog";
-dog.Speak();
+//Dog dog = new Dog();
+//dog.Name = "Dog";
+//dog.Speak();
 
-Cat cat = new Cat();
-cat.Name = "Cat";
-cat.Speak();
-cat.LeoCay();
+//Cat cat = new Cat();
+//cat.Name = "Cat";
+//cat.Speak();
+//cat.LeoCay();
+
+/*
+  BÀI TẬP VỀ NHÀ BUỔI 1
+ */
+//Buoi1_Btvn.BaiTap1();
+Buoi1_Btvn.BaiTap2();
