@@ -1,8 +1,10 @@
 ﻿/*
- * Biến, Kiểu dữ liệu,....kiến thức cơ bản
- * BT1:Nhập vào 2 số a và b in kết quả của các phép tính ra màn hình (20 phút)
- * BT2:Hiển thị ký tự thứ k trong string (20 phút)
- * BT3:Đếm số lần xuất hiện của một ký tự trong một xâu
+ * BIẾN, KIỂU DỮ LIỆU,....KIẾN THỨC CƠ BẢN
+ * BT1:NHẬP VÀO 2 SỐ A VÀ B IN KẾT QUẢ CỦA CÁC PHÉP TÍNH RA MÀN HÌNH (20 PHÚT)
+ * BT2:HIỂN THỊ KÝ TỰ THỨ K TRONG STRING (20 PHÚT)
+ * BT3:ĐẾM SỐ LẦN XUẤT HIỆN CỦA MỘT KÝ TỰ TRONG MỘT XÂU
+ * BT4:ĐẾM SỐ LẦN XUẤT HIỆN CỦA KÝ TỰ TRONG CHUỖI NHẬP VÀO
+ * BT5:CHUYỂN CÁC KÝ TỰ IN THƯỜNG SANG IN HOA
  */
 
 using System.Text;
@@ -64,6 +66,56 @@ namespace DevFullStack
             Console.Write($"Đếm số lần xuất hiện trong chuỗi {chuoiKyTu} của ký tự: ");
             int position = int.Parse(Console.ReadLine());
             Console.Write($"Ký tự thứ {position} trong chuỗi là: {chuoiKyTu[position]}");
+            Console.ReadKey();
+        }
+
+        public static void BaiTap4()
+        {
+            // Đặt Encoding UTF-8 để hiển thị tiếng Việt đúng
+            Console.OutputEncoding = Encoding.UTF8;
+
+            // Nhập a từ bàn phím
+            Console.Write("Nhập chuỗi ký tự: ");
+            string strChuoi = Console.ReadLine();
+
+            Console.Write("Nhập ký tự muốn đếm số lần xuất hiện: ");
+            char strKyTu = Convert.ToChar(Console.ReadLine());
+
+            int dem = 0;
+            for (int i = 0; i < strChuoi.Length; i++)
+            {
+                if (strChuoi[i] == strKyTu)
+                {
+                    dem = dem + 1;
+                }
+            }
+
+            Console.Write($"Số lần xuất hiện {strKyTu}: {dem} lần.");
+        }
+
+        public static void BaiTap5()
+        {
+            // Đặt Encoding UTF-8 để hiển thị tiếng Việt đúng
+            Console.OutputEncoding = Encoding.UTF8;
+
+            // Nhập a từ bàn phím
+            Console.Write("Nhập chuỗi ký tự: ");
+            string strChuoi = Console.ReadLine();
+
+            string strOutput = "";
+            for (int i = 0; i < strChuoi.Length; i++)
+            {
+                if (char.IsLower(strChuoi[i]))
+                {
+                    strOutput = strOutput + char.ToUpper(strChuoi[i]);
+                }
+                else
+                {
+                    strOutput = strOutput + strChuoi[i];
+                }
+            }
+
+            Console.Write($"Chuỗi ký tự sau khi được chuyển sang in Hoa là {strOutput}.");
             Console.ReadKey();
         }
     }

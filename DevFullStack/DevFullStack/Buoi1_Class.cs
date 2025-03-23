@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace DevFullStack
 {
     public class Animals
-    {   
+    {
         public string Name { get; set; }
 
         public void Speak()
