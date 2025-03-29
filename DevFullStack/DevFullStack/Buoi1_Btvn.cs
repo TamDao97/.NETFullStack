@@ -64,11 +64,11 @@ namespace DevFullStack
             Console.Write("Nhập số phần tử trong mảng: ");
             int length = Convert.ToInt32(Console.ReadLine());
 
-            int[] arr = [length];
-            while (arr.Length < length)
+            int[] arr = new int[length];
+
+            for (int i = 0; i < arr.Length; i++)
             {
-                int tmp = Convert.ToInt32(Console.ReadLine());
-                arr.Append(tmp);
+                arr[i] = Convert.ToInt32(Console.ReadLine());
             }
 
             for (int i = 0; i < arr.Length - 1; i++)
@@ -92,5 +92,46 @@ namespace DevFullStack
             }
             Console.ReadKey();
         }
+
+        ///// <summary>
+        ///// Hiển thị ra màn hình các số chẵn trong mảng
+        ///// </summary>
+        //public static void BaiTap2()
+        //{
+        //    // Đặt Encoding UTF-8 để hiển thị tiếng Việt đúng
+        //    Console.OutputEncoding = Encoding.UTF8;
+
+        //    // Nhập a từ bàn phím
+        //    Console.Write("Nhập số phần tử trong mảng: ");
+        //    int length = Convert.ToInt32(Console.ReadLine());
+
+        //    int[] arr = new int[length];
+
+        //    for (int i = 0; i < arr.Length; i++)
+        //    {
+        //        arr[i] = Convert.ToInt32(Console.ReadLine());
+        //    }
+
+        //    for (int i = 0; i < arr.Length - 1; i++)
+        //    {
+        //        for (int j = i + 1; j < arr.Length; j++)
+        //        {
+        //            if (arr[i] > arr[j])
+        //            {
+        //                int temp = arr[i];
+        //                arr[i] = arr[j];
+        //                arr[j] = temp;
+        //            }
+        //        }
+        //    }
+
+        //    Console.Write($"Mảng được sắp xếp theo thứ tự tăng dần: ");
+
+        //    for (int i = 0; i < arr.Length; i++)
+        //    {
+        //        Console.Write(arr[i] + " ");
+        //    }
+        //    Console.ReadKey();
+        //}
     }
 }
