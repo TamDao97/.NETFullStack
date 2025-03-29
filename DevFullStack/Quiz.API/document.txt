@@ -1,0 +1,76 @@
+﻿********************************************************************************
+*******************************WEB API TUTORIAL*********************************
+1.CẤU TRÚC PROJECT .NET 8 WEB API & GIẢI THÍCH MỘT SỐ BỔ SUNG MỚI
+- Tính năng của file .http trong .NET 8
+	+ Gửi request HTTP (GET, POST, PUT, DELETE, etc.).
+	+ Gửi request có headers, body, authentication.
+	+ Dễ dàng test API trong cùng dự án mà không cần công cụ ngoài.
+	+ Hỗ trợ biến, môi trường (environment), phản hồi (response handling).
+
+
+NỘI DUNG THỰC HÀNH BUỔI 4
+1.TRIỂN KHAI ENTITY FRAMEWORK CORE (EF CORE) TRONG .NET 8 WEB API, SỬ DỤNG CODE FIRST VỚI SQL SERVER.
+
+Bước 1: Cài đặt EF Core
+	dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+	dotnet add package Microsoft.EntityFrameworkCore.Design
+	dotnet add package Microsoft.EntityFrameworkCore.Tools
+
+Bước 2: Tạo Model & DbContext
+	Topic,Question,QuizDBContext
+
+Bước 3: Cấu hình kết nối SQL Server
+	"ConnectionStrings": {
+	  "DefaultConnection": "Server=localhost;Database=Quiz;User Id=sa;Password=123456a@A;TrustServerCertificate=True"
+	}
+
+	THÊM CẤU HÌNH VÀO DBCONTEXT
+		// Thêm DbContext vào DI container
+		builder.Services.AddDbContext<AppDbContext>(options =>
+			options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+Bước 4: Tạo Migration & Cập Nhật Database
+	dotnet ef migrations add InitialCreate
+	dotnet ef database update
+
+Bước 5: Viết API Controller
+	[Route("api/[controller]")]
+    [ApiController]
+    public class ProductController : ControllerBase
+    {
+        private readonly AppDbContext _context;
+
+        public ProductController(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        // Lấy sản phẩm theo Id
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Product>> GetProduct(int id)
+        {
+            var product = await _context.Products.FindAsync(id);
+            if (product == null) return NotFound();
+            return product;
+        }
+
+        // Tạo mới sản phẩm
+        [HttpPost]
+        public async Task<ActionResult<Product>> CreateProduct(Product product)
+        {
+            _context.Products.Add(product);
+            await _context.SaveChangesAsync();
+            return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
+        }
+    }
+Bước 6: Test API
+
+	✅ Tóm tắt
+	1️⃣ Cài đặt EF Core
+	2️⃣ Tạo Model & DbContext
+	3️⃣ Cấu hình chuỗi kết nối SQL Server
+	4️⃣ Tạo migration và cập nhật database
+	5️⃣ Viết API controller để thao tác với dữ liệu
+	6️⃣ Test API với Swagger hoặc Postman
+
+	💡 Bạn có muốn thêm chức năng nào không? Ví dụ: phân trang, lọc dữ liệu? 🚀

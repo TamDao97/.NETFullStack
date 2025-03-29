@@ -1,0 +1,9 @@
+﻿************************ Hệ Thống Luyện Thi Trực Tuyến (Quiz App) ****************************
+Mô tả: Xây dựng hệ thống luyện thi cho học sinh/sinh viên.
+Tính năng:
+✅ Ngân hàng đề thi với câu hỏi trắc nghiệm, tự luận.
+✅ Cho phép luyện tập từng chủ đề với bộ câu hỏi theo cấp độ.
+✅ Thống kê số câu đúng, sai, gợi ý cải thiện kiến thức.
+✅ Bảng xếp hạng theo điểm số, cấp bậc học sinh.
+✅ Tích hợp AI để gợi ý câu hỏi phù hợp với trình độ.
+Công nghệ: .NET Web API, EF Core, Angular, SignalR (realtime bảng xếp hạng).

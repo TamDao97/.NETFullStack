@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D1BFDCD8-F372-46A9-BA69-2D8A9BD761C8}|DevFullStack\\DevFullStack.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\devfullstack\\buoi1_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1BFDCD8-F372-46A9-BA69-2D8A9BD761C8}|DevFullStack\\DevFullStack.csproj|solutionrelative:devfullstack\\buoi1_class.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\quiz.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|solutionrelative:quiz.api\\quiz.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D1BFDCD8-F372-46A9-BA69-2D8A9BD761C8}|DevFullStack\\DevFullStack.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\devfullstack\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1BFDCD8-F372-46A9-BA69-2D8A9BD761C8}|DevFullStack\\DevFullStack.csproj|solutionrelative:devfullstack\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D1BFDCD8-F372-46A9-BA69-2D8A9BD761C8}|DevFullStack\\DevFullStack.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\devfullstack\\buoi1_btvn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D1BFDCD8-F372-46A9-BA69-2D8A9BD761C8}|DevFullStack\\DevFullStack.csproj|solutionrelative:devfullstack\\buoi1_btvn.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|solutionrelative:quiz.api\\controllers\\weatherforecastcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,82 +39,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Buoi1_Class.cs",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\Buoi1_Class.cs",
-              "RelativeDocumentMoniker": "DevFullStack\\Buoi1_Class.cs",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\Buoi1_Class.cs",
-              "RelativeToolTip": "DevFullStack\\Buoi1_Class.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-22T10:03:09.622Z",
+              "Title": "Quiz.API.http",
+              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Quiz.API.http",
+              "RelativeDocumentMoniker": "Quiz.API\\Quiz.API.http",
+              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Quiz.API.http",
+              "RelativeToolTip": "Quiz.API\\Quiz.API.http",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2025-03-29T14:34:22.609Z",
               "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "41e9a1c6-f8c4-4bfc-9052-098692bb1361",
-        "Display": 0,
-        "X": 249,
-        "Y": 46,
-        "Width": 1454,
-        "Height": 770,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
+            },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\Program.cs",
-              "RelativeDocumentMoniker": "DevFullStack\\Program.cs",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\Program.cs",
-              "RelativeToolTip": "DevFullStack\\Program.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAADQAAAAMAAAA",
+              "Title": "WeatherForecastController.cs",
+              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Controllers\\WeatherForecastController.cs",
+              "RelativeDocumentMoniker": "Quiz.API\\Controllers\\WeatherForecastController.cs",
+              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Controllers\\WeatherForecastController.cs",
+              "RelativeToolTip": "Quiz.API\\Controllers\\WeatherForecastController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T03:54:12.765Z",
-              "EditorCaption": ""
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "ffbb066c-077d-4163-962b-5c612823a773",
-        "Display": 0,
-        "X": -5,
-        "Y": 2,
-        "Width": 1930,
-        "Height": 1043,
-        "WindowState": 0
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Buoi1_Btvn.cs",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\Buoi1_Btvn.cs",
-              "RelativeDocumentMoniker": "DevFullStack\\Buoi1_Btvn.cs",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\Buoi1_Btvn.cs",
-              "RelativeToolTip": "DevFullStack\\Buoi1_Btvn.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-23T03:53:05.43Z",
+              "WhenOpened": "2025-03-29T14:33:32.512Z",
               "EditorCaption": ""
             }
           ]
