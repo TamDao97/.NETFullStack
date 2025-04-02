@@ -1,9 +1,136 @@
 ﻿************************ Hệ Thống Luyện Thi Trực Tuyến (Quiz App) ****************************
 Mô tả: Xây dựng hệ thống luyện thi cho học sinh/sinh viên.
 Tính năng:
-✅ Ngân hàng đề thi với câu hỏi trắc nghiệm, tự luận.
+✅ Ngân hàng đề thi với câu hỏi trắc nghiệm.
 ✅ Cho phép luyện tập từng chủ đề với bộ câu hỏi theo cấp độ.
 ✅ Thống kê số câu đúng, sai, gợi ý cải thiện kiến thức.
 ✅ Bảng xếp hạng theo điểm số, cấp bậc học sinh.
 ✅ Tích hợp AI để gợi ý câu hỏi phù hợp với trình độ.
 Công nghệ: .NET Web API, EF Core, Angular, SignalR (realtime bảng xếp hạng).
+
+
+
+-----------------
+B1. CẦN THIẾT KẾ BẢNG
+- USER, TOPIC, QUESTION, ANSWERS, QUESTIONLEVEL,KETQUATHI,QUESTION TYPE,
+
+----------------
+USER (
+	 id,
+     Code,
+     UserName,
+     DisplayName,
+     Gender,
+     DateBirh
+     Address
+     PassWord
+     IsLockout
+	,[DateCreated]
+    ,[DateModify]
+    ,[CreatedUserId]
+    ,[ModifyUserId]
+    ,[IsDeleted]
+)
+	
+TOPIC(
+     id,
+     Code,
+     Name,
+     Description
+     [DateCreated]
+    ,[DateModify]
+    ,[CreatedUserId]
+    ,[ModifyUserId]
+    ,[IsDeleted]
+)
+
+QUESTIONTYPE
+(
+     id,
+     Name,
+     [DateCreated]
+    ,[DateModify]
+    ,[CreatedUserId]
+    ,[ModifyUserId]
+    ,[IsDeleted]
+)
+
+QUESTIONLEVEL
+(
+     id,
+     Name,
+     [DateCreated]
+    ,[DateModify]
+    ,[CreatedUserId]
+    ,[ModifyUserId]
+    ,[IsDeleted]
+)
+
+QUESTION(
+     id,
+     Code,
+     Content,
+     IdTopic
+     IdQuestionLevel
+     IdIdQuestionType
+     Description
+     [DateCreated]
+    ,[DateModify]
+    ,[CreatedUserId]
+    ,[ModifyUserId]
+    ,[IsDeleted]
+)
+
+ANSWERS(
+     id,
+     IdQUESTION
+     Name,
+     Content
+     IsTrue
+     [DateCreated]
+    ,[DateModify]
+    ,[CreatedUserId]
+    ,[ModifyUserId]
+    ,[IsDeleted]
+)
+
+KETQUATHI(
+     id,
+     IdUser
+     JsonData
+     Thời gian kt
+     Thơi gian bắt đầu
+     Điểm số
+     TiLeDungSai
+     [DateCreated]
+    ,[DateModify]
+    ,[CreatedUserId]
+    ,[ModifyUserId]
+    ,[IsDeleted]
+)
+
+1 T -> n Q
+
+{
+    CountDown:10 //Thời gian làm bài thi
+    Questions: [
+        {
+            IdQuestion:"",
+            Content:"",
+            IdQuestionType:"",
+            Image:"",
+            Score:"",
+            IsDone:"",
+            Answers: [
+                {
+                    IdDapAn:"",
+                    Name:"",
+                    Content:"",
+                    IsCheck:"",//Đáp án người dùng check
+                    IsTrue :"",//Đáp án đúng
+                }
+            ]
+        }
+    ]
+}
+

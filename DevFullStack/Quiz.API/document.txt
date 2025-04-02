@@ -20,7 +20,7 @@ Bước 2: Tạo Model & DbContext
 	Topic,Question,QuizDBContext
 
 Bước 3: Cấu hình kết nối SQL Server
-	"ConnectionStrings": {
+	"ConnectionStrings": {	
 	  "DefaultConnection": "Server=localhost;Database=Quiz;User Id=sa;Password=123456a@A;TrustServerCertificate=True"
 	}
 
