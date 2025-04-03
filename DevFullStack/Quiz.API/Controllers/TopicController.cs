@@ -14,11 +14,11 @@ namespace Quiz.API.Controllers
             _logger = logger;
         }
 
-        [Route("create")]
-        [HttpGet]
-        public async Task<IActionResult> Create()
-        {
+        //[Route("create")]
+        //[HttpGet]
+        //public async Task<IActionResult> Create()
+        //{
 
-        }
+        //}
     }
 }
