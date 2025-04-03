@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\tai_lieu_du_an.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|solutionrelative:quiz.api\\tai_lieu_du_an.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\controllers\\topiccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|solutionrelative:quiz.api\\controllers\\topiccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\data\\quizdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|solutionrelative:quiz.api\\data\\quizdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\tai_lieu_du_an.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|solutionrelative:quiz.api\\tai_lieu_du_an.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\document.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -62,28 +62,29 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "TopicController.cs",
               "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Controllers\\TopicController.cs",
               "RelativeDocumentMoniker": "Quiz.API\\Controllers\\TopicController.cs",
               "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Controllers\\TopicController.cs",
               "RelativeToolTip": "Quiz.API\\Controllers\\TopicController.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-30T16:08:06.538Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "tai_lieu_du_an.txt",
               "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\tai_lieu_du_an.txt",
               "RelativeDocumentMoniker": "Quiz.API\\tai_lieu_du_an.txt",
               "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\tai_lieu_du_an.txt",
               "RelativeToolTip": "Quiz.API\\tai_lieu_du_an.txt",
-              "ViewState": "AQIAAGUAAAAAAAAAAAAAAH4AAAAcAAAA",
+              "ViewState": "AQIAAGUAAAAAAAAAAAAAAHQAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-03-29T14:48:12.02Z"
+              "WhenOpened": "2025-03-29T14:48:12.02Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -111,7 +112,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "QuizDbContext.cs",
               "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Data\\QuizDbContext.cs",
               "RelativeDocumentMoniker": "Quiz.API\\Data\\QuizDbContext.cs",
