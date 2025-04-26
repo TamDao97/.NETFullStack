@@ -10,7 +10,7 @@ builder.Services.AddDbContext<QuizDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped(typeof(IUserService), typeof(UserService));
-builder.Services.AddScoped(typeof(IUserService), typeof(UserService));
+builder.Services.AddScoped(typeof(IAuthenService), typeof(AuthenService));
 
 
 builder.Services.AddControllers();

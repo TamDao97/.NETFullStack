@@ -30,7 +30,7 @@ Bước 3: Cấu hình kết nối SQL Server
 			options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 Bước 4: Tạo Migration & Cập Nhật Database
-	dotnet ef migrations add InitialCreate
+	dotnet ef migrations add InitialCreate -o {path}
 	dotnet ef database update
 
 Bước 5: Viết API Controller
