@@ -1,3 +1,4 @@
+import { QuestionComponent } from './pages/question/question.component';
 import { UserComponent } from './pages/user/user.component';
 import { LayoutComponent } from './shared/components/layout/layout.component';
 import { Routes } from '@angular/router';
@@ -20,6 +21,10 @@ export const routes: Routes = [
         path: 'user',
         component: UserComponent,
         // canActivate: [AuthGuard],
+      },
+      {
+        path: 'question',
+        component: QuestionComponent,
       },
     ],
   },

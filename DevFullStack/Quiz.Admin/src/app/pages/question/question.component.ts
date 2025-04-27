@@ -1,20 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCardModule } from 'ng-zorro-antd/card';
-import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
-import { NzGridModule } from 'ng-zorro-antd/grid';
-import { NzIconModule } from 'ng-zorro-antd/icon';
-import { NzInputModule } from 'ng-zorro-antd/input';
-import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzInputModule } from 'ng-zorro-antd/input';
+import { FormsModule } from '@angular/forms';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
-import { UserEditComponent } from './user-edit/user-edit.component';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+
+interface DataItem {
+  name: string;
+  age: number;
+  address: string;
+}
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css'],
+  selector: 'app-question',
+  templateUrl: './question.component.html',
+  styleUrls: ['./question.component.scss'],
   standalone: true,
   imports: [
     NzButtonModule,
@@ -29,14 +34,14 @@ import { UserEditComponent } from './user-edit/user-edit.component';
     NzModalModule,
   ],
 })
-export class UserComponent implements OnInit {
-  constructor(private _modalService: NzModalService) {}
+export class QuestionComponent implements OnInit {
+  constructor() {}
 
   ngOnInit() {}
 
   searchValue = '';
   visible = false;
-  listOfData: any[] = [
+  listOfData: DataItem[] = [
     {
       name: 'John Brown',
       age: 32,
@@ -68,21 +73,7 @@ export class UserComponent implements OnInit {
   search(): void {
     this.visible = false;
     this.listOfDisplayData = this.listOfData.filter(
-      (item: any) => item.name.indexOf(this.searchValue) !== -1
+      (item: DataItem) => item.name.indexOf(this.searchValue) !== -1
     );
-  }
-
-  onCreateUser(): void {
-    this._modalService.create({
-      nzTitle: 'Thêm mới người dùng',
-      nzContent: UserEditComponent,
-    });
-  }
-
-  onEditUser(id: any): void {
-    this._modalService.create({
-      nzTitle: 'Cập nhật người dùng',
-      nzContent: UserEditComponent,
-    });
   }
 }

@@ -53,7 +53,7 @@ namespace Quiz.API.Services
                 UserName = request.UserName,
                 DisplayName = request.DisplayName,
                 Gender = request.Gender,
-                DateBirh = request.DateBirh,
+                DateBirh = request.DateBirth,
                 Address = request.Address,
                 PasswordHash = request.PassWord,
                 IsLockout = true,
