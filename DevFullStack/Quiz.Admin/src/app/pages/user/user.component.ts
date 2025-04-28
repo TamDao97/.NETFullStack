@@ -1,3 +1,5 @@
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
@@ -27,6 +29,7 @@ import { UserEditComponent } from './user-edit/user-edit.component';
     NzGridModule,
     NzToolTipModule,
     NzModalModule,
+    CommonModule,
   ],
 })
 export class UserComponent implements OnInit {

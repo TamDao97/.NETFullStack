@@ -19,12 +19,14 @@ namespace Quiz.API.Controllers
             _userService = userService;
         }
 
+        [Route("Create")]
         [HttpPost]
         public async Task<ActionResult<User>> Create(UserDto request)
         {
             return Ok(await _userService.Create(request));
         }
 
+        [Route("GetById/{id}")]
         [HttpGet]
         public async Task<ActionResult<User>> GetById(Guid id)
         {

@@ -10,14 +10,14 @@ export class ToastService {
   success(title: string, content: string) {
     this._notification.create('success', title, content, {
       nzPlacement: 'topRight',
-      nzDuration: 0,
+      nzDuration: 3000,
     });
   }
 
   error(title: string, content: string) {
     this._notification.create('error', title, content, {
       nzPlacement: 'topRight',
-      nzDuration: 0,
+      nzDuration: 3000,
     });
   }
 
