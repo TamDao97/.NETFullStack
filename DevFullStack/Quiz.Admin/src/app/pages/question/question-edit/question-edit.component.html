@@ -1,0 +1,60 @@
+<div nz-row>
+  <div nz-col nzSpan="8">
+    <nz-card>
+      <form nz-form nzLayout="vertical">
+        <nz-form-item>
+          <nz-form-label nzRequired>Chủ đề</nz-form-label>
+          <nz-form-control nzErrorTip="Vui lòng nhập dữ liệu.">
+            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="--Chọn--">
+              <nz-option
+                [nzLabel]="topic.name"
+                [nzValue]="topic.id"
+                *ngFor="let topic of lstTopic"
+              ></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label nzRequired>Mức độ câu hỏi</nz-form-label>
+          <nz-form-control nzErrorTip="Vui lòng nhập dữ liệu.">
+            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="--Chọn--">
+              <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+              <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+              <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label nzRequired>Loại câu hỏi</nz-form-label>
+          <nz-form-control nzErrorTip="Vui lòng nhập dữ liệu.">
+            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="--Chọn--">
+              <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
+              <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
+              <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+            </nz-select>
+          </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item>
+          <nz-form-label nzFor="address">Nội dung</nz-form-label>
+          <nz-form-control>
+            <nz-textarea-count [nzMaxCharacterCount]="100">
+              <textarea nz-input rows="4" placeholder="Nội dung"></textarea>
+            </nz-textarea-count>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </nz-card>
+  </div>
+  <div nz-col nzSpan="16">
+    <nz-collapse>
+      <nz-collapse-panel [nzHeader]="'Thông tin đáp án'" [nzActive]="true">
+        <button nz-button nzType="primary" style="margin-bottom: 5px">
+          Tạo đáp án
+        </button>
+      </nz-collapse-panel>
+    </nz-collapse>
+  </div>
+</div>

@@ -8,7 +8,8 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { FormsModule } from '@angular/forms';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
-import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
+import { QuestionEditComponent } from './question-edit/question-edit.component';
 
 interface DataItem {
   name: string;
@@ -35,7 +36,7 @@ interface DataItem {
   ],
 })
 export class QuestionComponent implements OnInit {
-  constructor() {}
+  constructor(private _modalService: NzModalService) {}
 
   ngOnInit() {}
 
@@ -75,5 +76,13 @@ export class QuestionComponent implements OnInit {
     this.listOfDisplayData = this.listOfData.filter(
       (item: DataItem) => item.name.indexOf(this.searchValue) !== -1
     );
+  }
+
+  onCreateQuestion(): void {
+    this._modalService.create({
+      nzTitle: 'Thêm mới câu hỏi',
+      nzContent: QuestionEditComponent,
+      nzWidth: '1000px',
+    });
   }
 }
