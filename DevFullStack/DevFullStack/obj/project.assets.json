@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Administrator\\.nuget\\packages\\": {}
+    "C:\\Users\\tamdc\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\tamdc\\.NETFullStack\\DevFullStack\\DevFullStack\\DevFullStack.csproj",
+      "projectUniqueName": "D:\\ĐÀO TẠO LẬP TRÌNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\DevFullStack.csproj",
       "projectName": "DevFullStack",
-      "projectPath": "E:\\tamdc\\.NETFullStack\\DevFullStack\\DevFullStack\\DevFullStack.csproj",
-      "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
-      "outputPath": "E:\\tamdc\\.NETFullStack\\DevFullStack\\DevFullStack\\obj\\",
+      "projectPath": "D:\\ĐÀO TẠO LẬP TRÌNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\DevFullStack.csproj",
+      "packagesPath": "C:\\Users\\tamdc\\.nuget\\packages\\",
+      "outputPath": "D:\\ĐÀO TẠO LẬP TRÌNH FULLSTACK\\.NETFullStack\\DevFullStack\\DevFullStack\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tamdc\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -67,7 +67,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.408/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
