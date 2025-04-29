@@ -52,9 +52,12 @@
         <nz-form-label nzRequired nzFor="gender">Giới tính</nz-form-label>
         <nz-form-control>
           <nz-radio-group formControlName="gender">
-            <label nz-radio [nzValue]="'male'">Nam</label>
-            <label nz-radio [nzValue]="'female'">Nữ</label>
-            <label nz-radio [nzValue]="'other'">Khác</label>
+            <label
+              nz-radio
+              [nzValue]="item.value"
+              *ngFor="let item of lstGender"
+              >{{ item.text }}</label
+            >
           </nz-radio-group>
         </nz-form-control>
       </nz-form-item>

@@ -112,17 +112,24 @@ export class UserEditComponent implements OnInit {
       return;
     }
 
-    debugger;
     this._userService.create(this.frmGroup.value).subscribe(
       (response) => {
-        console.log('Dữ liệu:', response);
+        if (response.status == 200) {
+          this._toastService.success(
+            'Thành công',
+            'Thêm người dùng thành công!'
+          );
+          this.onExit();
+        } else {
+          this._toastService.error('Lỗi', response.message);
+        }
       },
       (error) => {
-        console.error('Có lỗi xảy ra:', error); // Xử lý lỗi
-      },
-      () => {
-        console.log('Yêu cầu hoàn thành!'); // Xử lý khi hoàn thành
+        this._toastService.error('Lỗi', error);
       }
+      // () => {
+      //   console.log('Yêu cầu hoàn thành!'); // Xử lý khi hoàn thành
+      // }
     );
   }
 

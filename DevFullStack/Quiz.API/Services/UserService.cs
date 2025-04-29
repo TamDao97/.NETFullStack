@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.FileSystemGlobbing.Internal;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileSystemGlobbing.Internal;
 using Quiz.API.Common;
 using Quiz.API.Data;
 using Quiz.API.Dto;
@@ -36,20 +37,22 @@ namespace Quiz.API.Services
                 return Response<User>.Error(StatusCode.InternalServerError, "Username đã tồn tại trên hệ thống!");
             }
 
-            if (_dbContext.Users.Any(r => r.Code == request.Code))
-            {
-                return Response<User>.Error(StatusCode.InternalServerError, "Mã tài khoản đã tồn tại trên hệ thống!");
-            }
+            //if (!Regex.IsMatch(request.PassWord, Constants.PassWordRegex))
+            //{
+            //    return Response<User>.Error(StatusCode.InternalServerError, "Mật khẩu phải có ít nhất một ký tự đặc biệt!");
+            //}
 
-            if (!Regex.IsMatch(request.PassWord, Constants.PassWordRegex))
+            //GenCode
+            string code;
+            do
             {
-                return Response<User>.Error(StatusCode.InternalServerError, "Mật khẩu phải có ít nhất một ký tự đặc biệt!");
-            }
+                code = Utils.GenCodeUnique("US");
+            } while (_dbContext.Users.AsNoTracking().Any(r => r.Code == code));
 
             var user = new User
             {
                 Id = Guid.NewGuid(),
-                Code = request.Code,
+                Code = code,
                 UserName = request.UserName,
                 DisplayName = request.DisplayName,
                 Gender = request.Gender,
