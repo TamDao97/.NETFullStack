@@ -111,6 +111,8 @@ export class UserEditComponent implements OnInit {
       this._toastService.error('Lỗi', 'Vui lòng nhập dữ liệu bắt buộc!');
       return;
     }
+
+    debugger;
     this._userService.create(this.frmGroup.value).subscribe(
       (response) => {
         console.log('Dữ liệu:', response);

@@ -3,26 +3,18 @@
     <nz-tab nzTitle="Thông tin tài khoản">
       <nz-form-item>
         <nz-form-label nzRequired nzFor="userName">Tài khoản</nz-form-label>
-        <nz-form-control [nzErrorTip]="userNameErrorTpl">
+        <nz-form-control nzErrorTip="Vui lòng nhập dữ liệu.">
           <input
             nz-input
             id="userName"
             formControlName="userName"
-            placeholder="Email/Phone"
+            placeholder="Tên tài khoản"
           />
-          <ng-template #userNameErrorTpl let-control>
-            <ng-container *ngIf="control.hasError('pattern')"
-              >Không đúng định dạng.</ng-container
-            >
-            <ng-container *ngIf="control.hasError('required')"
-              >Vui lòng nhập dữ liệu.</ng-container
-            >
-          </ng-template>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
         <nz-form-label nzRequired nzFor="passWord">Password</nz-form-label>
-        <nz-form-control nzErrorTip="Vui lòng nhập dữ liệu.">
+        <nz-form-control nzErrorTip="Vui lòng nhập dữ liệu">
           <nz-input-group [nzSuffix]="suffixTemplate">
             <input
               [type]="passwordVisible ? 'text' : 'password'"
@@ -47,7 +39,7 @@
     <nz-tab nzTitle="Hồ sơ cá nhân">
       <nz-form-item>
         <nz-form-label nzRequired nzFor="Họ và tên"> Họ và tên</nz-form-label>
-        <nz-form-control nzErrorTip="Vui lòng nhập dữ liệu.">
+        <nz-form-control nzErrorTip="Vui lòng nhập dữ liệu">
           <input
             nz-input
             id="displayName"
@@ -60,22 +52,20 @@
         <nz-form-label nzRequired nzFor="gender">Giới tính</nz-form-label>
         <nz-form-control>
           <nz-radio-group formControlName="gender">
-            <label
-              nz-radio
-              [nzValue]="item.value"
-              *ngFor="let item of lstGender"
-              >{{ item.text }}</label
-            >
+            <label nz-radio [nzValue]="'male'">Nam</label>
+            <label nz-radio [nzValue]="'female'">Nữ</label>
+            <label nz-radio [nzValue]="'other'">Khác</label>
           </nz-radio-group>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-label nzFor="dateBirth">Ngày sinh</nz-form-label>
-        <nz-form-control>
+        <nz-form-label nzRequired nzFor="dateBirth">Ngày sinh</nz-form-label>
+        <nz-form-control nzErrorTip="Vui lòng nhập dữ liệu.">
           <nz-date-picker
             id="dateBirth"
             formControlName="dateBirth"
             style="width: 100%"
+            nzPlaceHolder="Ngày sinh"
           ></nz-date-picker>
         </nz-form-control>
       </nz-form-item>
