@@ -14,7 +14,7 @@ namespace Quiz.API.Services
         Task<User> Update(UserDto request);
         Task<bool> Delete(Guid id);
         Task<User> GetById(Guid id);
-        Task<User> GetByFilter(string name);
+        Task<Response<List<UserDto>>> GetByFilter(UserGridRequestDto request);
     }
 
     public class UserService : IUserService
@@ -73,9 +73,29 @@ namespace Quiz.API.Services
             throw new NotImplementedException();
         }
 
-        public Task<User> GetByFilter(string name)
+        public async Task<Response<List<UserDto>>> GetByFilter(UserGridRequestDto request)
         {
-            throw new NotImplementedException();
+            var query = _dbContext.Users.AsNoTracking();
+
+            if (!string.IsNullOrEmpty(request.KeyWord))
+            {
+                query = query.Where(r => r.UserName.ToUpper().Contains(request.KeyWord.Trim().ToUpper())
+                                    || r.DisplayName.ToUpper().Contains(request.KeyWord.Trim().ToUpper()));
+            }
+
+            var totalItems = query.Count();
+            var datas = query.Skip((request.Page - 1) * request.PageSize)
+                            .Take(request.PageSize)
+                            .Select(r => new UserDto
+                            {
+                                Code = r.Code,
+                                UserName = r.UserName,
+                                DisplayName = r.DisplayName,
+                                Address = r.Address,
+                                DateBirth = r.DateBirh,
+                                Gender = r.Gender,
+                            }).ToList();
+            return Response<List<UserDto>>.Success(datas, "Thành công!");
         }
 
         public async Task<User> GetById(Guid id)

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Quiz.API.Common;
 using Quiz.API.Dto;
 using Quiz.API.Models;
 using Quiz.API.Services;
@@ -17,6 +18,13 @@ namespace Quiz.API.Controllers
         {
             _logger = logger;
             _userService = userService;
+        }
+
+        [Route("GetByFilter")]
+        [HttpPost]
+        public async Task<ActionResult<Response<List<UserDto>>>> GetByFilter(UserGridRequestDto request)
+        {
+            return Ok(await _userService.GetByFilter(request));
         }
 
         [Route("Create")]

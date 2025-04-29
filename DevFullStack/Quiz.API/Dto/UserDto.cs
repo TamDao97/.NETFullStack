@@ -45,4 +45,11 @@
         public string RefreshToken { get; set; }
         public List<string> Permissions { get; set; } = new List<string>();
     }
+
+    public class UserGridRequestDto
+    {
+        public string? KeyWord { get; set; }
+        public int Page { get; set; }
+        public int PageSize { get; set; }
+    }
 }
