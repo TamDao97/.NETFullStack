@@ -33,7 +33,7 @@ namespace Quiz.API.Services
 
             if (user == null)
             {
-                return Response<object>.Error(StatusCode.NotFound, "không tìm thấy dữ liệu trên hệ thống!", null);
+                return Response<object>.Error(StatusCode.NotFound, StatusCode.NotFound.ToDescription(), null);
             }
 
             if (!Utils.VerifyPassword(user.PasswordHash, reqDto.Password))

@@ -1,5 +1,5 @@
 import { RegexPattern } from './../../../shared/utils/regex-pattern';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -13,7 +13,12 @@ import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
-import { NzModalModule, NzModalRef, NzModalService } from 'ng-zorro-antd/modal';
+import {
+  NZ_MODAL_DATA,
+  NzModalModule,
+  NzModalRef,
+  NzModalService,
+} from 'ng-zorro-antd/modal';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
@@ -27,6 +32,11 @@ import { GenderEnums } from '../../../shared/utils/enums.enum';
 import { IDropdown } from '../../../interfaces/IDropdown';
 import { UserService } from '../../../services/user.service';
 import { HttpClientModule } from '@angular/common/http';
+import {
+  DateFormat,
+  StatusResponseMessage,
+  StatusResponseTitle,
+} from '../../../shared/utils/constants';
 
 @Component({
   selector: 'app-user-edit',
@@ -57,9 +67,11 @@ import { HttpClientModule } from '@angular/common/http';
   ],
 })
 export class UserEditComponent implements OnInit {
+  id: any = inject(NZ_MODAL_DATA);
   frmGroup: any;
   passwordVisible = false;
   genderEnums = GenderEnums;
+  dateFormat = DateFormat;
 
   lstGender: IDropdown[] = [
     { value: GenderEnums.Male, text: 'Nam' },
@@ -80,6 +92,7 @@ export class UserEditComponent implements OnInit {
 
   initForm() {
     this.frmGroup = this._fb.group({
+      id: [null],
       userName: [
         null,
         [
@@ -94,6 +107,19 @@ export class UserEditComponent implements OnInit {
       dateBirth: [null],
       address: [null],
     });
+    if (this.id) {
+      this._userService.getById(this.id).subscribe((res) => {
+        this.frmGroup.patchValue({
+          id: res.data.id,
+          userName: res.data.userName,
+          passWord: res.data.passWord,
+          displayName: res.data.displayName,
+          gender: res.data.gender,
+          dateBirth: res.data.dateBirth,
+          address: res.data.address,
+        });
+      });
+    }
   }
 
   markFormGroupTouched(formGroup: FormGroup) {
@@ -108,29 +134,54 @@ export class UserEditComponent implements OnInit {
   onSave() {
     if (!this.frmGroup.valid) {
       this.markFormGroupTouched(this.frmGroup);
-      this._toastService.error('Lỗi', 'Vui lòng nhập dữ liệu bắt buộc!');
+      this._toastService.error(
+        StatusResponseTitle.ERROR,
+        'Vui lòng nhập dữ liệu bắt buộc!'
+      );
       return;
     }
 
-    this._userService.create(this.frmGroup.value).subscribe(
-      (response) => {
-        if (response.status == 200) {
-          this._toastService.success(
-            'Thành công',
-            'Thêm người dùng thành công!'
-          );
-          this.onExit();
-        } else {
-          this._toastService.error('Lỗi', response.message);
+    if (!this.id) {
+      this._userService.create(this.frmGroup.value).subscribe(
+        (response) => {
+          if (response.status == 200) {
+            this._toastService.success(
+              StatusResponseTitle.SUCCESS,
+              StatusResponseMessage.ADD_SUCCESS
+            );
+            this.onExit();
+          } else {
+            this._toastService.error(
+              StatusResponseTitle.ERROR,
+              response.message
+            );
+          }
+        },
+        (error) => {
+          this._toastService.error('Lỗi', error);
         }
-      },
-      (error) => {
-        this._toastService.error('Lỗi', error);
-      }
-      // () => {
-      //   console.log('Yêu cầu hoàn thành!'); // Xử lý khi hoàn thành
-      // }
-    );
+      );
+    } else {
+      this._userService.update(this.frmGroup.value).subscribe(
+        (response) => {
+          if (response.status == 200) {
+            this._toastService.success(
+              StatusResponseTitle.SUCCESS,
+              StatusResponseMessage.UPDATE_SUCCESS
+            );
+            this.onExit();
+          } else {
+            this._toastService.error(
+              StatusResponseTitle.ERROR,
+              response.message
+            );
+          }
+        },
+        (error) => {
+          this._toastService.error(StatusResponseTitle.ERROR, error);
+        }
+      );
+    }
   }
 
   onExit() {

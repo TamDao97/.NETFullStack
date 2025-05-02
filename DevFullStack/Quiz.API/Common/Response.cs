@@ -5,13 +5,20 @@ namespace Quiz.API.Common
 {
     public enum StatusCode
     {
-        Ok = 200, //Thành công!
-        BadRequest = 400, //Dữ liệu đầu vào không chính xác!
-        Unauthorized = 401, //Không có quyền truy cập dữ liệu!
-        Forbidden = 403, //Không có quyền truy cập!
-        NotFound = 404, //Không tìm thấy dữ liệu trên hệ thống!
-        MethodNotAllowed = 405, //Phương thức không được hỗ trợ!
-        InternalServerError = 500 //Lỗi hệ thống!
+        [Description("Thành công!")]
+        Ok = 200,
+        [Description("Dữ liệu đầu vào không chính xác!")]
+        BadRequest = 400,
+        [Description("Không có quyền truy cập dữ liệu!")]
+        Unauthorized = 401,
+        [Description("Không có quyền truy cập!")]
+        Forbidden = 403,
+        [Description("Không tìm thấy dữ liệu trên hệ thống!")]
+        NotFound = 404,
+        [Description("Phương thức không được hỗ trợ!")]
+        MethodNotAllowed = 405,
+        [Description("Lỗi hệ thống!")]
+        InternalServerError = 500
     };
 
     public class Response<T> where T : new()

@@ -1,6 +1,6 @@
 <form nz-form [formGroup]="frmGroup" nzLayout="vertical">
   <nz-tabset>
-    <nz-tab nzTitle="Thông tin tài khoản">
+    <nz-tab nzTitle="Thông tin tài khoản" *ngIf="!id">
       <nz-form-item>
         <nz-form-label nzRequired nzFor="userName">Tài khoản</nz-form-label>
         <nz-form-control nzErrorTip="Vui lòng nhập dữ liệu.">
@@ -65,9 +65,10 @@
         <nz-form-label nzRequired nzFor="dateBirth">Ngày sinh</nz-form-label>
         <nz-form-control nzErrorTip="Vui lòng nhập dữ liệu.">
           <nz-date-picker
+            style="width: 100%"
             id="dateBirth"
             formControlName="dateBirth"
-            style="width: 100%"
+            [nzFormat]="dateFormat"
             nzPlaceHolder="Ngày sinh"
           ></nz-date-picker>
         </nz-form-control>

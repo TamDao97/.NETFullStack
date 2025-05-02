@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCardModule } from 'ng-zorro-antd/card';
@@ -12,6 +11,16 @@ import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { BaseComponent } from '../../shared/components/base/base.component';
+import { UserService } from '../../services/user.service';
+import { ToastService } from '../../shared/services/toast.service';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
+import { NzTagModule } from 'ng-zorro-antd/tag';
+import {
+  StatusResponseMessage,
+  StatusResponseTitle,
+} from '../../shared/utils/constants';
 
 @Component({
   selector: 'app-user',
@@ -30,62 +39,89 @@ import { UserEditComponent } from './user-edit/user-edit.component';
     NzToolTipModule,
     NzModalModule,
     CommonModule,
+    NzPaginationModule,
+    NzTypographyModule,
+    NzTagModule,
   ],
 })
-export class UserComponent implements OnInit {
-  constructor(private _modalService: NzModalService) {}
+export class UserComponent extends BaseComponent implements OnInit {
+  gridFilter = {
+    keyWord: null,
+  };
 
-  ngOnInit() {}
+  constructor(
+    private _cd: ChangeDetectorRef,
+    private _modalService: NzModalService,
+    private _toastService: ToastService,
+    private _userService: UserService
+  ) {
+    super();
+  }
 
-  searchValue = '';
-  visible = false;
-  listOfData: any[] = [
-    {
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-    },
-    {
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-    },
-    {
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-    },
-    {
-      name: 'Jim Red',
-      age: 32,
-      address: 'London No. 2 Lake Park',
-    },
-  ];
-  listOfDisplayData = [...this.listOfData];
+  ngOnInit() {
+    this.gridLoadData();
+  }
+
+  override gridLoadData() {
+    var filter = {
+      ...this.gridFilter,
+      ...this.setPageDefault(),
+    };
+    this._userService.search(filter).subscribe((res) => {
+      this.gridData = res.data.datas;
+      this.totalRecord = res.data.totalRecord;
+      this._cd.detectChanges(); // ép render lại
+      console.log(this.gridData);
+    });
+  }
 
   reset(): void {
-    this.searchValue = '';
-    this.search();
+    // this.searchValue = '';
+    // this.search();
   }
 
   search(): void {
-    this.visible = false;
-    this.listOfDisplayData = this.listOfData.filter(
-      (item: any) => item.name.indexOf(this.searchValue) !== -1
-    );
+    this.gridLoadData();
   }
 
   onCreateUser(): void {
-    this._modalService.create({
+    const modalRef = this._modalService.create({
+      nzWidth: '1000px',
       nzTitle: 'Thêm mới người dùng',
       nzContent: UserEditComponent,
+    });
+    modalRef.afterClose.subscribe((rs) => {
+      console.log(rs);
+      this.gridLoadData();
     });
   }
 
   onEditUser(id: any): void {
-    this._modalService.create({
+    const modalRef = this._modalService.create({
+      nzWidth: '1000px',
       nzTitle: 'Cập nhật người dùng',
       nzContent: UserEditComponent,
+      nzData: id,
+    });
+    modalRef.afterClose.subscribe((rs) => {
+      console.log(rs);
+      this.gridLoadData();
+    });
+  }
+
+  onDeleteUser(id: any): void {
+    const confirmModal = this._modalService.confirm({
+      nzTitle: 'Bạn có chắc chắn muốn xóa dữ liệu?',
+      // nzContent: 'When clicked the OK button, this dialog will be closed after 1 second',
+      nzOnOk: () => {
+        this._userService.delete(id).subscribe((res) => {
+          this.gridLoadData();
+          this._toastService.success(
+            StatusResponseTitle.SUCCESS,
+            StatusResponseMessage.DELETE_SUCCESS
+          );
+        });
+      },
     });
   }
 }

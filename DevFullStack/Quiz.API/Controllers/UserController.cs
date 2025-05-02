@@ -20,11 +20,11 @@ namespace Quiz.API.Controllers
             _userService = userService;
         }
 
-        [Route("GetByFilter")]
+        [Route("Search")]
         [HttpPost]
-        public async Task<ActionResult<Response<List<UserDto>>>> GetByFilter(UserGridRequestDto request)
+        public async Task<ActionResult<Response<List<UserDto>>>> Search(UserGridRequestDto request)
         {
-            return Ok(await _userService.GetByFilter(request));
+            return Ok(await _userService.Search(request));
         }
 
         [Route("Create")]
@@ -34,9 +34,23 @@ namespace Quiz.API.Controllers
             return Ok(await _userService.Create(request));
         }
 
+        [Route("Update")]
+        [HttpPost]
+        public async Task<ActionResult<User>> Update(UserDto request)
+        {
+            return Ok(await _userService.Update(request));
+        }
+
+        [Route("Delete/{id}")]
+        [HttpDelete]
+        public async Task<ActionResult<User>> Delete(Guid id)
+        {
+            return Ok(await _userService.Delete(id));
+        }
+
         [Route("GetById/{id}")]
         [HttpGet]
-        public async Task<ActionResult<User>> GetById(Guid id)
+        public async Task<ActionResult<Response<UserDto>>> GetById(Guid id)
         {
             return Ok(await _userService.GetById(id));
         }
