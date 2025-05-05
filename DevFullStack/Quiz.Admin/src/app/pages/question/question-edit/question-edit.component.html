@@ -1,5 +1,5 @@
 <div nz-row>
-  <div nz-col nzSpan="8">
+  <div nz-col nzSpan="14">
     <nz-card>
       <form nz-form nzLayout="vertical" [formGroup]="frmGroup">
         <nz-form-item>
@@ -70,16 +70,16 @@
 
             <ckeditor
               [editor]="Editor"
-              [(ngModel)]="editorData"
-              [config]="editorConfig">
+              formControlName="content"
+              [config]="editorConfig"
+            >
             </ckeditor>
-
           </nz-form-control>
         </nz-form-item>
       </form>
     </nz-card>
   </div>
-  <div nz-col nzSpan="16" style="padding: 0 3px">
+  <div nz-col nzSpan="10" style="padding: 0 3px">
     <nz-collapse>
       <nz-collapse-panel
         [nzHeader]="'Thông tin đáp án'"
