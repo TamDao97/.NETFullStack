@@ -118,7 +118,7 @@ namespace Quiz.API.Services
             {
                 Id = r.Id,
                 UserName = r.UserName,
-                PassWord = r.PasswordHash,
+                //PassWord = r.PasswordHash,
                 DisplayName = r.DisplayName,
                 Gender = r.Gender,
                 Address = r.Address,

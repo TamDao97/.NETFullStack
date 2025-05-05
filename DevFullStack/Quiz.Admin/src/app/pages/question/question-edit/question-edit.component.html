@@ -1,13 +1,18 @@
 <div nz-row>
   <div nz-col nzSpan="8">
     <nz-card>
-      <form nz-form nzLayout="vertical">
+      <form nz-form nzLayout="vertical" [formGroup]="frmGroup">
         <nz-form-item>
           <nz-form-label nzRequired>Chủ đề</nz-form-label>
           <nz-form-control nzErrorTip="Vui lòng nhập dữ liệu.">
-            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="--Chọn--">
+            <nz-select
+              nzShowSearch
+              nzAllowClear
+              nzPlaceHolder="--Chọn--"
+              formControlName="idTopic"
+            >
               <nz-option
-                [nzLabel]="topic.name"
+                [nzLabel]="topic.text"
                 [nzValue]="topic.id"
                 *ngFor="let topic of lstTopic"
               ></nz-option>
@@ -18,10 +23,17 @@
         <nz-form-item>
           <nz-form-label nzRequired>Mức độ câu hỏi</nz-form-label>
           <nz-form-control nzErrorTip="Vui lòng nhập dữ liệu.">
-            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="--Chọn--">
-              <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
-              <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
-              <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+            <nz-select
+              nzShowSearch
+              nzAllowClear
+              nzPlaceHolder="--Chọn--"
+              formControlName="questionLevel"
+            >
+              <nz-option
+                [nzLabel]="el.text"
+                [nzValue]="el.id"
+                *ngFor="let el of lstQuestionLevel"
+              ></nz-option>
             </nz-select>
           </nz-form-control>
         </nz-form-item>
@@ -29,10 +41,17 @@
         <nz-form-item>
           <nz-form-label nzRequired>Loại câu hỏi</nz-form-label>
           <nz-form-control nzErrorTip="Vui lòng nhập dữ liệu.">
-            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="--Chọn--">
-              <nz-option nzLabel="Jack" nzValue="jack"></nz-option>
-              <nz-option nzLabel="Lucy" nzValue="lucy"></nz-option>
-              <nz-option nzLabel="Tom" nzValue="tom"></nz-option>
+            <nz-select
+              nzShowSearch
+              nzAllowClear
+              nzPlaceHolder="--Chọn--"
+              formControlName="questionType"
+            >
+              <nz-option
+                [nzLabel]="el.text"
+                [nzValue]="el.id"
+                *ngFor="let el of lstQuestionType"
+              ></nz-option>
             </nz-select>
           </nz-form-control>
         </nz-form-item>
@@ -40,21 +59,70 @@
         <nz-form-item>
           <nz-form-label nzFor="address">Nội dung</nz-form-label>
           <nz-form-control>
-            <nz-textarea-count [nzMaxCharacterCount]="100">
-              <textarea nz-input rows="4" placeholder="Nội dung"></textarea>
-            </nz-textarea-count>
+            <!-- <nz-textarea-count [nzMaxCharacterCount]="100">
+              <textarea
+                nz-input
+                rows="4"
+                placeholder="Nội dung"
+                formControlName="content"
+              ></textarea>
+            </nz-textarea-count> -->
+
+            <ckeditor
+              [editor]="Editor"
+              [(ngModel)]="editorData"
+              [config]="editorConfig">
+            </ckeditor>
+
           </nz-form-control>
         </nz-form-item>
       </form>
     </nz-card>
   </div>
-  <div nz-col nzSpan="16">
+  <div nz-col nzSpan="16" style="padding: 0 3px">
     <nz-collapse>
-      <nz-collapse-panel [nzHeader]="'Thông tin đáp án'" [nzActive]="true">
-        <button nz-button nzType="primary" style="margin-bottom: 5px">
+      <nz-collapse-panel
+        [nzHeader]="'Thông tin đáp án'"
+        [nzActive]="true"
+        [nzExtra]="extraTpl"
+      >
+        <!-- <button nz-button nzType="primary" style="margin-bottom: 5px">
           Tạo đáp án
-        </button>
+        </button> -->
+        <div nz-row>
+          <div nz-col nzSpan="24">
+            <ng-container [ngSwitch]="this.frmGroup.get('questionType').value">
+              <ng-container *ngSwitchCase="questionTypeEnums.SingleChoice">
+                <app-single-choice [answers]="answers"></app-single-choice>
+              </ng-container>
+              <ng-container *ngSwitchCase="questionTypeEnums.MultiChoice">
+                <app-multi-choice [answers]="answers"></app-multi-choice
+              ></ng-container>
+              <ng-container *ngSwitchCase="questionTypeEnums.TrueOrFalse"
+                ><app-true-or-false [answers]="answers"></app-true-or-false
+              ></ng-container>
+              <ng-container
+                *ngSwitchCase="questionTypeEnums.OrderingOrSequencing"
+                ><app-ordering-or-sequencing
+                  [answers]="answers"
+                ></app-ordering-or-sequencing
+              ></ng-container>
+              <ng-container *ngSwitchDefault
+                >This is the default case</ng-container
+              >
+            </ng-container>
+          </div>
+        </div>
       </nz-collapse-panel>
     </nz-collapse>
+    <ng-template #extraTpl>
+      <i
+        nz-tooltip
+        nzTooltipTitle="Tạo đáp án"
+        nz-icon
+        nzType="plus-circle"
+        (click)="onAddAnswer(); $event.stopPropagation()"
+      ></i>
+    </ng-template>
   </div>
 </div>

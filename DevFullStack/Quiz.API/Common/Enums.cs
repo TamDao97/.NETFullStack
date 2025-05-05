@@ -11,4 +11,26 @@ namespace Quiz.API.Common
         [Description("Khác")]
         Orther,
     }
+
+    public enum EnumQuestionType
+    {
+        [Description("Câu hỏi một đáp án đúng")]
+        SingleChoice,
+        [Description("Câu hỏi nhiều đáp án đúng")]
+        MultiChoice,
+        [Description("Câu hỏi đúng/sai")]
+        TrueOrFalse,
+        [Description("Câu hỏi sắp xếp thứ tự")]
+        OrderingOrSequencing,
+    }
+
+    public enum EnumQuestionLevel
+    {
+        [Description("Dễ")]
+        Easy,
+        [Description("Trung bình")]
+        Medium,
+        [Description("Khó")]
+        Hard,
+    }
 }

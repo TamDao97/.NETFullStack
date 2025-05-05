@@ -74,9 +74,9 @@ export class UserEditComponent implements OnInit {
   dateFormat = DateFormat;
 
   lstGender: IDropdown[] = [
-    { value: GenderEnums.Male, text: 'Nam' },
-    { value: GenderEnums.Female, text: 'Nữ' },
-    { value: GenderEnums.Orther, text: 'Khác' },
+    { id: GenderEnums.Male, text: 'Nam' },
+    { id: GenderEnums.Female, text: 'Nữ' },
+    { id: GenderEnums.Orther, text: 'Khác' },
   ];
 
   constructor(

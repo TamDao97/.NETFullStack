@@ -10,9 +10,9 @@ builder.Services.AddDbContext<QuizDbContext>(options =>
         options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddScoped(typeof(IUserService), typeof(UserService));
+builder.Services.AddScoped(typeof(ICommonService), typeof(CommonService));
 builder.Services.AddScoped(typeof(IAuthenService), typeof(AuthenService));
 builder.Services.AddScoped(typeof(ITopicService), typeof(TopicService));
-
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

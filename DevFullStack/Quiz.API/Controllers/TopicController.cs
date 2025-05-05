@@ -18,12 +18,5 @@ namespace Quiz.API.Controllers
             _logger = logger;
             _topicService = topicService;
         }
-
-        [Route("GetSelectTopic")]
-        [HttpGet]
-        public async Task<ActionResult<List<DropdownBase>>> GetSelectTopic()
-        {
-            return Ok(await _topicService.GetSelectTopic());
-        }
     }
 }

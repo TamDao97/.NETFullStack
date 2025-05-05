@@ -1,4 +1,5 @@
-﻿using Quiz.API.Models;
+﻿using Quiz.API.Common;
+using Quiz.API.Models;
 
 namespace Quiz.API.Dto
 {
@@ -9,6 +10,7 @@ namespace Quiz.API.Dto
         public string Name { get; set; }
         public string Content { get; set; }
         public string Description { get; set; }
-
+        public EnumQuestionType QuestionType { get; set; }
+        public EnumQuestionLevel QuestionLevel { get; set; }
     }
 }
