@@ -82,7 +82,7 @@ export class QuestionComponent implements OnInit {
     this._modalService.create({
       nzTitle: 'Thêm mới câu hỏi',
       nzContent: QuestionEditComponent,
-      nzWidth: '1000px',
+      nzWidth: '1350px',
     });
   }
 }

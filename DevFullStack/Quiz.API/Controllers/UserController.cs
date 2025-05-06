@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Quiz.API.Common;
 using Quiz.API.Dto;
 using Quiz.API.Models;
 using Quiz.API.Services;
@@ -19,6 +20,13 @@ namespace Quiz.API.Controllers
             _userService = userService;
         }
 
+        [Route("Search")]
+        [HttpPost]
+        public async Task<ActionResult<Response<List<UserDto>>>> Search(UserGridRequestDto request)
+        {
+            return Ok(await _userService.Search(request));
+        }
+
         [Route("Create")]
         [HttpPost]
         public async Task<ActionResult<User>> Create(UserDto request)
@@ -26,9 +34,23 @@ namespace Quiz.API.Controllers
             return Ok(await _userService.Create(request));
         }
 
+        [Route("Update")]
+        [HttpPost]
+        public async Task<ActionResult<User>> Update(UserDto request)
+        {
+            return Ok(await _userService.Update(request));
+        }
+
+        [Route("Delete/{id}")]
+        [HttpDelete]
+        public async Task<ActionResult<User>> Delete(Guid id)
+        {
+            return Ok(await _userService.Delete(id));
+        }
+
         [Route("GetById/{id}")]
         [HttpGet]
-        public async Task<ActionResult<User>> GetById(Guid id)
+        public async Task<ActionResult<Response<UserDto>>> GetById(Guid id)
         {
             return Ok(await _userService.GetById(id));
         }

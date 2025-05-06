@@ -11,10 +11,10 @@ namespace Quiz.API.Services
     public interface IUserService
     {
         Task<Response<User>> Create(UserDto request);
-        Task<User> Update(UserDto request);
-        Task<bool> Delete(Guid id);
-        Task<User> GetById(Guid id);
-        Task<User> GetByFilter(string name);
+        Task<Response<User>> Update(UserDto request);
+        Task<Response<bool>> Delete(Guid id);
+        Task<Response<UserDto>> GetById(Guid id);
+        Task<Response<GridResponse<UserDto>>> Search(UserGridRequestDto request);
     }
 
     public class UserService : IUserService
@@ -44,10 +44,21 @@ namespace Quiz.API.Services
                 return Response<User>.Error(StatusCode.InternalServerError, "Username đã tồn tại trên hệ thống!");
             }
 
+<<<<<<< HEAD
             if (!Regex.IsMatch(request.PassWord, Constants.PassWordRegex))
+=======
+            //if (!Regex.IsMatch(request.PassWord, Constants.PassWordRegex))
+            //{
+            //    return Response<User>.Error(StatusCode.InternalServerError, "Mật khẩu phải có ít nhất một ký tự đặc biệt!");
+            //}
+
+            //GenCode
+            string code;
+            do
+>>>>>>> 01dc023bf5e8f8d801636f87f68cbd453e858008
             {
-                return Response<User>.Error(StatusCode.InternalServerError, "Mật khẩu phải có ít nhất một ký tự đặc biệt!");
-            }
+                code = Utils.GenCodeUnique("US");
+            } while (_dbContext.Users.AsNoTracking().Any(r => r.Code == code));
 
             var user = new User
             {
@@ -68,24 +79,80 @@ namespace Quiz.API.Services
             return Response<User>.Success(user, "Thành công!");
         }
 
-        public Task<bool> Delete(Guid id)
+        public async Task<Response<bool>> Delete(Guid id)
         {
-            throw new NotImplementedException();
+            var user = _dbContext.Users.FirstOrDefault(r => r.Id == id);
+
+            if (user is null) return Response<bool>.Error(StatusCode.NotFound, StatusCode.NotFound.ToDescription());
+
+            _dbContext.Users.Remove(user);
+            _dbContext.SaveChanges();
+            return Response<bool>.Success(true, StatusCode.Ok.ToDescription());
         }
 
-        public Task<User> GetByFilter(string name)
+        public async Task<Response<GridResponse<UserDto>>> Search(UserGridRequestDto request)
         {
-            throw new NotImplementedException();
+            var query = _dbContext.Users.AsNoTracking();
+
+            if (!string.IsNullOrEmpty(request.KeyWord))
+            {
+                query = query.Where(r => r.UserName.ToUpper().Contains(request.KeyWord.Trim().ToUpper())
+                                    || r.DisplayName.ToUpper().Contains(request.KeyWord.Trim().ToUpper())
+                                    || r.Code.ToUpper().Contains(request.KeyWord.Trim().ToUpper()));
+            }
+
+            var totalRecord = query.Select(r => r.Id).Count();
+            var datas = query.Skip((request.Page - 1) * request.PageSize)
+                            .Take(request.PageSize)
+                            .Select(r => new UserDto
+                            {
+                                Id = r.Id,
+                                Code = r.Code,
+                                UserName = r.UserName,
+                                DisplayName = r.DisplayName,
+                                Address = r.Address,
+                                DateBirth = r.DateBirh,
+                                Gender = r.Gender,
+                                IsLockout = r.IsLockout,
+                                IsAdmin = r.IsAdmin,
+                            }).ToList();
+            return Response<GridResponse<UserDto>>.Success(new GridResponse<UserDto>
+            {
+                TotalRecord = totalRecord,
+                Datas = datas
+            }, "Thành công!");
         }
 
-        public async Task<User> GetById(Guid id)
+        public async Task<Response<UserDto>> GetById(Guid id)
         {
-            return _dbContext.Users.FirstOrDefault(r => r.Id == id);
+            var userRes = _dbContext.Users.Select(r => new UserDto
+            {
+                Id = r.Id,
+                UserName = r.UserName,
+                //PassWord = r.PasswordHash,
+                DisplayName = r.DisplayName,
+                Gender = r.Gender,
+                Address = r.Address,
+                DateBirth = r.DateBirh,
+            }).FirstOrDefault(r => r.Id == id);
+
+            if (userRes == null) return Response<UserDto>.Error(StatusCode.NotFound, StatusCode.NotFound.ToDescription());
+            return Response<UserDto>.Success(userRes, "Thành công!");
         }
 
-        public Task<User> Update(UserDto request)
+        public async Task<Response<User>> Update(UserDto request)
         {
-            throw new NotImplementedException();
+            var user = _dbContext.Users.FirstOrDefault(r => r.Id == request.Id);
+
+            if (user is null) return Response<User>.Error(StatusCode.NotFound, StatusCode.NotFound.ToDescription());
+
+            user.DisplayName = request.DisplayName;
+            user.Gender = request.Gender;
+            user.DateBirh = request.DateBirth;
+            user.Address = request.Address;
+            _dbContext.Users.Update(user);
+            _dbContext.SaveChanges();
+            return Response<User>.Success(user, "Thành công!");
         }
     }
 }

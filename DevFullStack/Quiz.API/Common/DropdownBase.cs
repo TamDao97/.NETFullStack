@@ -1,8 +1,8 @@
 ﻿namespace Quiz.API.Common
 {
-    public class DropdownBase
+    public class DropdownBase<T>
     {
-        public Guid Id { get; set; }
+        public T Id { get; set; }
         public string Text { get; set; }
     }
 }

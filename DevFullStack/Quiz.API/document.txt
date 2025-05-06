@@ -58,12 +58,12 @@ Bước 5: Viết API Controller
         [HttpPost]
         public async Task<ActionResult<Product>> CreateProduct(Product product)
         {
-            _context.Products.Add(product);
+            _context.Products.Add(product);	
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
         }
     }
-Bước 6: Test API
+Bước 6: Test API	
 
 	✅ Tóm tắt
 	1️⃣ Cài đặt EF Core
