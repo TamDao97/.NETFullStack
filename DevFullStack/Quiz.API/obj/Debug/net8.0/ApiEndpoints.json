@@ -1,5 +1,31 @@
 [
   {
+    "ContainingType": "Quiz.API.Controllers.AuthenController",
+    "Method": "LoginAsync",
+    "RelativePath": "api/Authen",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reqDto",
+        "Type": "Quiz.API.Dto.LoginRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Quiz.API.Models.User",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "Quiz.API.Controllers.QuestionController",
     "Method": "Create",
     "RelativePath": "api/Question",
@@ -46,35 +72,9 @@
     ]
   },
   {
-    "ContainingType": "Quiz.API.Controllers.AuthenController",
-    "Method": "LoginAsync",
-    "RelativePath": "Authen",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "reqDto",
-        "Type": "Quiz.API.Dto.LoginRequestDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "Quiz.API.Models.User",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
     "ContainingType": "Quiz.API.Controllers.UserController",
     "Method": "Create",
-    "RelativePath": "User/Create",
+    "RelativePath": "api/User/Create",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -100,7 +100,7 @@
   {
     "ContainingType": "Quiz.API.Controllers.UserController",
     "Method": "GetById",
-    "RelativePath": "User/GetById/{id}",
+    "RelativePath": "api/User/GetById/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

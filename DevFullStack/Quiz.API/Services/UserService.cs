@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.FileSystemGlobbing.Internal;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileSystemGlobbing.Internal;
 using Quiz.API.Common;
 using Quiz.API.Data;
 using Quiz.API.Dto;
@@ -27,6 +28,13 @@ namespace Quiz.API.Services
 
         public async Task<Response<User>> Create(UserDto request)
         {
+            //Generate mã
+            string code;
+            do
+            {
+                code = Utils.GenerateUniqueCode(Constants.Prefix.User);
+            } while (_dbContext.Users.AsNoTracking().Any(r => r.Code == code));
+
             //Mô tả:
             //1.UserName là unique
             //2.Code là unique
@@ -34,11 +42,6 @@ namespace Quiz.API.Services
             if (_dbContext.Users.Any(r => r.UserName == request.UserName))
             {
                 return Response<User>.Error(StatusCode.InternalServerError, "Username đã tồn tại trên hệ thống!");
-            }
-
-            if (_dbContext.Users.Any(r => r.Code == request.Code))
-            {
-                return Response<User>.Error(StatusCode.InternalServerError, "Mã tài khoản đã tồn tại trên hệ thống!");
             }
 
             if (!Regex.IsMatch(request.PassWord, Constants.PassWordRegex))
@@ -49,7 +52,7 @@ namespace Quiz.API.Services
             var user = new User
             {
                 Id = Guid.NewGuid(),
-                Code = request.Code,
+                Code = code,
                 UserName = request.UserName,
                 DisplayName = request.DisplayName,
                 Gender = request.Gender,

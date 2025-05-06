@@ -88,4 +88,11 @@ export class UserComponent implements OnInit {
       nzContent: UserEditComponent,
     });
   }
+
+  onDeleteUser(id: any): void {
+    this._modalService.create({
+      nzTitle: 'Cập nhật người dùng',
+      nzContent: UserEditComponent,
+    });
+  }
 }

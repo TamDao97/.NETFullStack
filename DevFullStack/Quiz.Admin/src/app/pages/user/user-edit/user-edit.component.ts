@@ -112,7 +112,6 @@ export class UserEditComponent implements OnInit {
       return;
     }
 
-    debugger;
     this._userService.create(this.frmGroup.value).subscribe(
       (response) => {
         console.log('Dữ liệu:', response);
