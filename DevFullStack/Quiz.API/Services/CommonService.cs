@@ -37,7 +37,7 @@ namespace Quiz.API.Services
         public async Task<Response<List<DropdownBase<int>>>> GetListQuestionLevel()
         {
             var datas = Enum.GetValues(typeof(EnumQuestionLevel))
-                           .Cast<EnumQuestionType>()
+                           .Cast<EnumQuestionLevel>()
                            .Select(r => new DropdownBase<int>
                            {
                                Id = (int)r,
