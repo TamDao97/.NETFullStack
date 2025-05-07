@@ -1,56 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\document.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|solutionrelative:quiz.api\\document.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\services\\commonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|solutionrelative:quiz.api\\services\\commonservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\controllers\\topiccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|solutionrelative:quiz.api\\controllers\\topiccontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\controllers\\commoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|solutionrelative:quiz.api\\controllers\\commoncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\common\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|solutionrelative:quiz.api\\common\\enums.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\services\\authenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|solutionrelative:quiz.api\\services\\authenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|solutionrelative:quiz.api\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\common\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|solutionrelative:quiz.api\\common\\response.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\quiz.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|solutionrelative:quiz.api\\quiz.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Models\\Topic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Quiz.API\\Models\\Topic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Models\\Question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Quiz.API\\Models\\Question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|d:\\\u0111\u00E0o t\u1EA1o l\u1EADp tr\u00ECnh fullstack\\.netfullstack\\devfullstack\\quiz.api\\common\\gridresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E750B3B0-FC69-47EC-940C-AA57B603C66C}|Quiz.API\\Quiz.API.csproj|solutionrelative:quiz.api\\common\\gridresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -58,7 +9,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
@@ -75,150 +26,6 @@
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "document.txt",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\document.txt",
-              "RelativeDocumentMoniker": "Quiz.API\\document.txt",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\document.txt",
-              "RelativeToolTip": "Quiz.API\\document.txt",
-              "ViewState": "AQIAABwAAAAAAAAAAAAswDMAAABAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-05-03T14:12:01.281Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CommonController.cs",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Controllers\\CommonController.cs",
-              "RelativeDocumentMoniker": "Quiz.API\\Controllers\\CommonController.cs",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Controllers\\CommonController.cs",
-              "RelativeToolTip": "Quiz.API\\Controllers\\CommonController.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAwwBwAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T13:40:25.49Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CommonService.cs",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Services\\CommonService.cs",
-              "RelativeDocumentMoniker": "Quiz.API\\Services\\CommonService.cs",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Services\\CommonService.cs",
-              "RelativeToolTip": "Quiz.API\\Services\\CommonService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T08:57:38.024Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Enums.cs",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Common\\Enums.cs",
-              "RelativeDocumentMoniker": "Quiz.API\\Common\\Enums.cs",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Common\\Enums.cs",
-              "RelativeToolTip": "Quiz.API\\Common\\Enums.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAAABwAAAAbAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T08:41:19.797Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AuthenService.cs",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Services\\AuthenService.cs",
-              "RelativeDocumentMoniker": "Quiz.API\\Services\\AuthenService.cs",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Services\\AuthenService.cs",
-              "RelativeToolTip": "Quiz.API\\Services\\AuthenService.cs",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAAABIAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-13T09:51:14.022Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "Quiz.API\\Services\\UserService.cs",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Services\\UserService.cs",
-              "RelativeToolTip": "Quiz.API\\Services\\UserService.cs",
-              "ViewState": "AQIAACIAAAAAAAAAAAAwwDoAAAAtAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-03T15:08:32.927Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "GridResponse.cs",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Common\\GridResponse.cs",
-              "RelativeDocumentMoniker": "Quiz.API\\Common\\GridResponse.cs",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Common\\GridResponse.cs",
-              "RelativeToolTip": "Quiz.API\\Common\\GridResponse.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAA7AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T02:14:41.271Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Response.cs",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Common\\Response.cs",
-              "RelativeDocumentMoniker": "Quiz.API\\Common\\Response.cs",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Common\\Response.cs",
-              "RelativeToolTip": "Quiz.API\\Common\\Response.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAA9wCwAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-03T02:15:15.168Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "TopicController.cs",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Controllers\\TopicController.cs",
-              "RelativeDocumentMoniker": "Quiz.API\\Controllers\\TopicController.cs",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Controllers\\TopicController.cs",
-              "RelativeToolTip": "Quiz.API\\Controllers\\TopicController.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAgwBYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T16:08:06.538Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Topic.cs",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Models\\Topic.cs",
-              "RelativeDocumentMoniker": "Quiz.API\\Models\\Topic.cs",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Models\\Topic.cs",
-              "RelativeToolTip": "Quiz.API\\Models\\Topic.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T15:02:57.085Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "Question.cs",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Models\\Question.cs",
-              "RelativeDocumentMoniker": "Quiz.API\\Models\\Question.cs",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Models\\Question.cs",
-              "RelativeToolTip": "Quiz.API\\Models\\Question.cs",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-29T15:01:21.546Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Quiz.API.http",
-              "DocumentMoniker": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Quiz.API.http",
-              "RelativeDocumentMoniker": "Quiz.API\\Quiz.API.http",
-              "ToolTip": "D:\\\u0110\u00C0O T\u1EA0O L\u1EACP TR\u00CCNH FULLSTACK\\.NETFullStack\\DevFullStack\\Quiz.API\\Quiz.API.http",
-              "RelativeToolTip": "Quiz.API\\Quiz.API.http",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-03-29T14:34:22.609Z"
             }
           ]
         }

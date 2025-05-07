@@ -31,7 +31,7 @@ import { MultiChoiceComponent } from './answers/multi-choice/multi-choice.compon
 import { TrueOrFalseComponent } from './answers/true-or-false/true-or-false.component';
 import { OrderingOrSequencingComponent } from './answers/ordering-or-sequencing/ordering-or-sequencing.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
-import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+ 
 
 @Component({
   selector: 'app-question-edit',
@@ -173,8 +173,17 @@ export class QuestionEditComponent implements OnInit {
     });
   }
 
-  public Editor = ClassicEditor as any;
-  public editorData = '<p>Hello from CKEditor 5!</p>';
+  onSave() {
+    console.log(this.frmGroup.value);
+  }
+
+  onExit() {
+    this._modal.close();
+  }
+
+  public Editor = ClassicEditor;
+  public editorData = '<p>Chào mừng bạn đến với CKEditor 5!</p>';
+
   public editorConfig = {
     placeholder: 'Nhập nội dung tại đây...',
     toolbar: {

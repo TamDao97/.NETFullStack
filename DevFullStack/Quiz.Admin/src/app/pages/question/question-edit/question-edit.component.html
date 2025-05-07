@@ -67,13 +67,7 @@
                 formControlName="content"
               ></textarea>
             </nz-textarea-count> -->
-
-            <ckeditor
-              [editor]="Editor"
-              formControlName="content"
-              [config]="editorConfig"
-            >
-            </ckeditor>
+            <ckeditor [editor]="Editor" [(ngModel)]="editorData" formControlName="content"></ckeditor>            
           </nz-form-control>
         </nz-form-item>
       </form>
@@ -125,4 +119,8 @@
       ></i>
     </ng-template>
   </div>
+</div>
+<div *nzModalFooter>
+  <button nz-button nzType="default" (click)="onSave()">Lưu</button>
+  <button nz-button nzType="primary" (click)="onExit()">Thoất</button>
 </div>
