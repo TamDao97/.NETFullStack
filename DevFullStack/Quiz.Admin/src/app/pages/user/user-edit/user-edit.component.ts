@@ -141,19 +141,6 @@ export class UserEditComponent implements OnInit {
       return;
     }
 
-<<<<<<< HEAD
-    this._userService.create(this.frmGroup.value).subscribe(
-      (response) => {
-        console.log('Dữ liệu:', response);
-      },
-      (error) => {
-        console.error('Có lỗi xảy ra:', error); // Xử lý lỗi
-      },
-      () => {
-        console.log('Yêu cầu hoàn thành!'); // Xử lý khi hoàn thành
-      }
-    );
-=======
     if (!this.id) {
       this._userService.create(this.frmGroup.value).subscribe(
         (response) => {
@@ -195,7 +182,6 @@ export class UserEditComponent implements OnInit {
         }
       );
     }
->>>>>>> 01dc023bf5e8f8d801636f87f68cbd453e858008
   }
 
   onExit() {

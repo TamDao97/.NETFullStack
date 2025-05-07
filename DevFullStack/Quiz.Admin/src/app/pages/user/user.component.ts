@@ -124,11 +124,4 @@ export class UserComponent extends BaseComponent implements OnInit {
       },
     });
   }
-
-  onDeleteUser(id: any): void {
-    this._modalService.create({
-      nzTitle: 'Cập nhật người dùng',
-      nzContent: UserEditComponent,
-    });
-  }
 }
