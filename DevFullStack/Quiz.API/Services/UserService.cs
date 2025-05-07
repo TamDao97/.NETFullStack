@@ -28,6 +28,13 @@ namespace Quiz.API.Services
 
         public async Task<Response<User>> Create(UserDto request)
         {
+            //Generate mã
+            string code;
+            do
+            {
+                code = Utils.GenerateUniqueCode(Constants.Prefix.User);
+            } while (_dbContext.Users.AsNoTracking().Any(r => r.Code == code));
+
             //Mô tả:
             //1.UserName là unique
             //2.Code là unique
@@ -37,6 +44,9 @@ namespace Quiz.API.Services
                 return Response<User>.Error(StatusCode.InternalServerError, "Username đã tồn tại trên hệ thống!");
             }
 
+<<<<<<< HEAD
+            if (!Regex.IsMatch(request.PassWord, Constants.PassWordRegex))
+=======
             //if (!Regex.IsMatch(request.PassWord, Constants.PassWordRegex))
             //{
             //    return Response<User>.Error(StatusCode.InternalServerError, "Mật khẩu phải có ít nhất một ký tự đặc biệt!");
@@ -45,6 +55,7 @@ namespace Quiz.API.Services
             //GenCode
             string code;
             do
+>>>>>>> 01dc023bf5e8f8d801636f87f68cbd453e858008
             {
                 code = Utils.GenCodeUnique("US");
             } while (_dbContext.Users.AsNoTracking().Any(r => r.Code == code));

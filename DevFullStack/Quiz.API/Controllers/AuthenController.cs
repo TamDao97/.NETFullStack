@@ -6,7 +6,7 @@ using Quiz.API.Services;
 namespace Quiz.API.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class AuthenController : ControllerBase
     {
         private readonly ILogger<AuthenController> _logger;
