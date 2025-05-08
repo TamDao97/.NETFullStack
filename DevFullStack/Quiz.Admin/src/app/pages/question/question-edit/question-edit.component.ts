@@ -30,8 +30,8 @@ import { SingleChoiceComponent } from './answers/single-choice/single-choice.com
 import { MultiChoiceComponent } from './answers/multi-choice/multi-choice.component';
 import { TrueOrFalseComponent } from './answers/true-or-false/true-or-false.component';
 import { OrderingOrSequencingComponent } from './answers/ordering-or-sequencing/ordering-or-sequencing.component';
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @Component({
   selector: 'app-question-edit',
@@ -173,63 +173,18 @@ export class QuestionEditComponent implements OnInit {
     });
   }
 
+  onSave() {
+    console.log(this.frmGroup.value);
+  }
+
+  onExit() {
+    this._modal.close();
+  }
+
   public Editor = ClassicEditor as any;
-  public editorData = '<p>Hello from CKEditor 5!</p>';
+  public editorData = '<p>Nhập nội dung tại đây...</p>';
   public editorConfig = {
-    placeholder: 'Nhập nội dung tại đây...',
-    toolbar: {
-      items: [
-        'undo',
-        'redo',
-        '|',
-        'exportPdf',
-        'exportWord',
-        '|',
-        'findAndReplace',
-        'selectAll',
-        '|',
-        'heading',
-        'styles',
-        '|',
-        'bold',
-        'italic',
-        'underline',
-        'strikethrough',
-        'subscript',
-        'superscript',
-        '|',
-        'fontSize',
-        'fontFamily',
-        'fontColor',
-        'fontBackgroundColor',
-        '|',
-        'alignment',
-        '|',
-        'bulletedList',
-        'numberedList',
-        'todoList',
-        '|',
-        'outdent',
-        'indent',
-        '|',
-        'link',
-        'imageUpload',
-        'insertTable',
-        'mediaEmbed',
-        '|',
-        'blockQuote',
-        'codeBlock',
-        '|',
-        'horizontalLine',
-        'specialCharacters',
-        'removeFormat',
-        '|',
-        'sourceEditing',
-      ],
-      shouldNotGroupWhenFull: true,
-    },
-    image: {
-      toolbar: ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side'],
-    },
+    removePlugins: ['CKFinder', 'EasyImage'],
+    // base64 adapter có sẵn trong ClassicEditor
   };
 }
