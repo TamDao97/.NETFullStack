@@ -1,0 +1,13 @@
+﻿# Build results
+Quiz.API/bin/
+Quiz.API/obj/
+
+# Visual Studio settings
+*.vs/
+Quiz.Admin/.vscode/
+Quiz.Admin/node_modules/
+
+
+# Others (optional)
+
+git rm -r --cached Quiz.API/bin Quiz.API/obj .vs Quiz.Admin/

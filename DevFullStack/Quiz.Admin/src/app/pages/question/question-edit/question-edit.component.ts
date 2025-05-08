@@ -31,7 +31,6 @@ import { MultiChoiceComponent } from './answers/multi-choice/multi-choice.compon
 import { TrueOrFalseComponent } from './answers/true-or-false/true-or-false.component';
 import { OrderingOrSequencingComponent } from './answers/ordering-or-sequencing/ordering-or-sequencing.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
- 
 
 @Component({
   selector: 'app-question-edit',
@@ -181,64 +180,64 @@ export class QuestionEditComponent implements OnInit {
     this._modal.close();
   }
 
-  public Editor = ClassicEditor;
-  public editorData = '<p>Chào mừng bạn đến với CKEditor 5!</p>';
+  // public Editor = ClassicEditor;
+  // public editorData = '<p>Chào mừng bạn đến với CKEditor 5!</p>';
 
-  public editorConfig = {
-    placeholder: 'Nhập nội dung tại đây...',
-    toolbar: {
-      items: [
-        'undo',
-        'redo',
-        '|',
-        'exportPdf',
-        'exportWord',
-        '|',
-        'findAndReplace',
-        'selectAll',
-        '|',
-        'heading',
-        'styles',
-        '|',
-        'bold',
-        'italic',
-        'underline',
-        'strikethrough',
-        'subscript',
-        'superscript',
-        '|',
-        'fontSize',
-        'fontFamily',
-        'fontColor',
-        'fontBackgroundColor',
-        '|',
-        'alignment',
-        '|',
-        'bulletedList',
-        'numberedList',
-        'todoList',
-        '|',
-        'outdent',
-        'indent',
-        '|',
-        'link',
-        'imageUpload',
-        'insertTable',
-        'mediaEmbed',
-        '|',
-        'blockQuote',
-        'codeBlock',
-        '|',
-        'horizontalLine',
-        'specialCharacters',
-        'removeFormat',
-        '|',
-        'sourceEditing',
-      ],
-      shouldNotGroupWhenFull: true,
-    },
-    image: {
-      toolbar: ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side'],
-    },
-  };
+  // public editorConfig = {
+  //   placeholder: 'Nhập nội dung tại đây...',
+  //   toolbar: {
+  //     items: [
+  //       'undo',
+  //       'redo',
+  //       '|',
+  //       'exportPdf',
+  //       'exportWord',
+  //       '|',
+  //       'findAndReplace',
+  //       'selectAll',
+  //       '|',
+  //       'heading',
+  //       'styles',
+  //       '|',
+  //       'bold',
+  //       'italic',
+  //       'underline',
+  //       'strikethrough',
+  //       'subscript',
+  //       'superscript',
+  //       '|',
+  //       'fontSize',
+  //       'fontFamily',
+  //       'fontColor',
+  //       'fontBackgroundColor',
+  //       '|',
+  //       'alignment',
+  //       '|',
+  //       'bulletedList',
+  //       'numberedList',
+  //       'todoList',
+  //       '|',
+  //       'outdent',
+  //       'indent',
+  //       '|',
+  //       'link',
+  //       'imageUpload',
+  //       'insertTable',
+  //       'mediaEmbed',
+  //       '|',
+  //       'blockQuote',
+  //       'codeBlock',
+  //       '|',
+  //       'horizontalLine',
+  //       'specialCharacters',
+  //       'removeFormat',
+  //       '|',
+  //       'sourceEditing',
+  //     ],
+  //     shouldNotGroupWhenFull: true,
+  //   },
+  //   image: {
+  //     toolbar: ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side'],
+  //   },
+  // };
 }
