@@ -51,6 +51,7 @@
   </head>
   <body class="mat-typography">
     <app-root></app-root>
+
     <!--   Core JS Files   -->
     <script src="./assets/js/core/jquery-3.7.1.min.js"></script>
     <script src="./assets/js/core/popper.min.js"></script>
@@ -114,6 +115,17 @@
         lineColor: "#ffa534",
         fillColor: "rgba(255, 165, 52, .14)",
       });
+    </script>
+
+    <script src="./node_modules/ckeditor5-build-classic-base64-upload/build/ckeditor.js"></script>
+    <script>
+      ClassicEditor.create(document.querySelector("#editor"))
+        .then((editor) => {
+          window.editor = editor;
+        })
+        .catch((error) => {
+          console.error("There was a problem initializing the editor.", error);
+        });
     </script>
   </body>
 </html>
