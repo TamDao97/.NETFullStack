@@ -1,5 +1,5 @@
-import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCardModule } from 'ng-zorro-antd/card';
@@ -10,41 +10,39 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
-import { UserEditComponent } from './user-edit/user-edit.component';
-import { BaseComponent } from '../../shared/components/base/base.component';
-import { UserService } from '../../services/user.service';
-import { ToastService } from '../../shared/services/toast.service';
 import { NzPaginationModule } from 'ng-zorro-antd/pagination';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
 import { NzTagModule } from 'ng-zorro-antd/tag';
-import {
-  StatusResponseMessage,
-  StatusResponseTitle,
-} from '../../shared/utils/constants';
+
+import { BaseComponent } from '../../shared/components/base/base.component';
+import { TopicService } from '../../services/topic.service';
+import { ToastService } from '../../shared/services/toast.service';
+import { TopicEditComponent } from './topic-edit/topic-edit.component';
+import { StatusResponseMessage, StatusResponseTitle } from '../../shared/utils/constants';
 
 @Component({
-  selector: 'app-user',
-  templateUrl: './user.component.html',
-  styleUrls: ['./user.component.css'],
+  selector: 'app-topic',
+  templateUrl: './topic.component.html',
+  styleUrls: ['./topic.component.css'],
   standalone: true,
   imports: [
+    CommonModule,
+    FormsModule,
     NzButtonModule,
     NzCardModule,
     NzTableModule,
     NzIconModule,
     NzDropDownModule,
     NzInputModule,
-    FormsModule,
     NzGridModule,
     NzToolTipModule,
     NzModalModule,
-    CommonModule,
     NzPaginationModule,
     NzTypographyModule,
     NzTagModule,
   ],
 })
-export class UserComponent extends BaseComponent implements OnInit {
+export class TopicComponent extends BaseComponent implements OnInit {
   gridFilter = {
     keyWord: null,
   };
@@ -58,38 +56,36 @@ export class UserComponent extends BaseComponent implements OnInit {
     private _cd: ChangeDetectorRef,
     private _modalService: NzModalService,
     private _toastService: ToastService,
-    private _userService: UserService
+    private _topicService: TopicService
   ) {
     super();
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.gridLoadData();
   }
 
-  override gridLoadData() {
-    var filter = {
+  override gridLoadData(): void {
+    const filter = {
       ...this.gridFilter,
       page: this.page,
-      pageSize: this.pageSize,                                                                                                                                                                                            
+      pageSize: this.pageSize,
     };
-    this._userService.search(filter).subscribe((res) => {
+    this._topicService.search(filter).subscribe((res) => {
       this.gridData = res.data.datas;
       this.totalRecord = res.data.totalRecord;
       this._cd.detectChanges(); // ép render lại
       console.log(this.gridData);
     });
   }
+  reset(): void{
 
-  reset(): void {
-    // this.searchValue = '';
-    // this.search();
   }
-
   search(): void {
-    this.gridLoadData();
+    this.page = 1;
     this.gridLoadData();
   }
+
   changePageIndex(page: number): void {
     this.page = page;
     this.gridLoadData();
@@ -101,37 +97,39 @@ export class UserComponent extends BaseComponent implements OnInit {
     this.gridLoadData();
   }
 
-  onCreateUser(): void {
+  onCreateTopic(): void {
     const modalRef = this._modalService.create({
       nzWidth: '1000px',
-      nzTitle: 'Thêm mới người dùng',
-      nzContent: UserEditComponent,
+      nzTitle: 'Thêm mới chủ đề',
+      nzContent: TopicEditComponent,
     });
+
     modalRef.afterClose.subscribe((rs) => {
       console.log(rs);
       this.gridLoadData();
     });
   }
 
-  onEditUser(id: any): void {
+  onEditTopic(id: any): void {
     const modalRef = this._modalService.create({
       nzWidth: '1000px',
-      nzTitle: 'Cập nhật người dùng',
-      nzContent: UserEditComponent,
+      nzTitle: 'Cập nhật chủ đề',
+      nzContent: TopicEditComponent,
       nzData: id,
     });
-    modalRef.afterClose.subscribe((rs) => {
+
+   modalRef.afterClose.subscribe((rs) => {
       console.log(rs);
       this.gridLoadData();
     });
   }
 
-  onDeleteUser(id: any): void {
+  onDeleteTopic(id: any): void {
     const confirmModal = this._modalService.confirm({
       nzTitle: 'Bạn có chắc chắn muốn xóa dữ liệu?',
       // nzContent: 'When clicked the OK button, this dialog will be closed after 1 second',
       nzOnOk: () => {
-        this._userService.delete(id).subscribe((res) => {
+        this._topicService.delete(id).subscribe((res) => {
           this.gridLoadData();
           this._toastService.success(
             StatusResponseTitle.SUCCESS,

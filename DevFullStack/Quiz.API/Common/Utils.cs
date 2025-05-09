@@ -1,19 +1,14 @@
-<<<<<<< HEAD
-﻿using System;
-=======
-﻿using System.ComponentModel;
+using System;
+using System.ComponentModel;
 using System.Reflection;
->>>>>>> 01dc023bf5e8f8d801636f87f68cbd453e858008
 
 namespace Quiz.API.Common
 {
     public static class Utils
     {
-<<<<<<< HEAD
+        // Chỉ khai báo random một lần
         private static Random random = new Random();
 
-=======
->>>>>>> 01dc023bf5e8f8d801636f87f68cbd453e858008
         #region Auth
         public static string HashPassword(string password)
         {
@@ -28,14 +23,11 @@ namespace Quiz.API.Common
         }
         #endregion
 
-<<<<<<< HEAD
         #region Extension Methods
         public static string GenerateUniqueCode(string prefix)
         {
             return $"{prefix}{random.Next(10000000, 100000000).ToString()}"; // 8 chữ số
-=======
-        #region extension methods
-        private static readonly Random random = new Random();
+        }
 
         public static string GenCodeUnique(string prefix)
         {
@@ -55,7 +47,6 @@ namespace Quiz.API.Common
             }
 
             return value.ToString(); // fallback nếu không có Description
->>>>>>> 01dc023bf5e8f8d801636f87f68cbd453e858008
         }
         #endregion
     }

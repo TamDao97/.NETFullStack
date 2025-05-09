@@ -31,7 +31,9 @@ import { MultiChoiceComponent } from './answers/multi-choice/multi-choice.compon
 import { TrueOrFalseComponent } from './answers/true-or-false/true-or-false.component';
 import { OrderingOrSequencingComponent } from './answers/ordering-or-sequencing/ordering-or-sequencing.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
- 
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
+
 
 @Component({
   selector: 'app-question-edit',
@@ -64,9 +66,11 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     MultiChoiceComponent,
     TrueOrFalseComponent,
     OrderingOrSequencingComponent,
+  
   ],
 })
 export class QuestionEditComponent implements OnInit {
+  public Editor = ClassicEditor as any;
   lstTopic: IDropdown[] = [];
   lstQuestionType: IDropdown[] = [];
   lstQuestionLevel: IDropdown[] = [];
@@ -181,7 +185,6 @@ export class QuestionEditComponent implements OnInit {
     this._modal.close();
   }
 
-  public Editor = ClassicEditor;
   public editorData = '<p>Chào mừng bạn đến với CKEditor 5!</p>';
 
   public editorConfig = {

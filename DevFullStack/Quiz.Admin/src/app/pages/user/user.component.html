@@ -27,15 +27,15 @@
     nzFrontPagination="false"
   >
     <thead>
-      <tr>
+      <tr >
         <th nzWidth="80px">STT</th>
-        <th nzWidth="350px">Họ và tên</th>
-        <th nzWidth="200px">Giới tính</th>
-        <th nzWidth="200px">Ngày sinh</th>
+        <th nzWidth="350px" >Họ và tên</th>
+        <th nzWidth="200px" >Giới tính</th>
+        <th nzWidth="200px" >Ngày sinh</th>
         <th nzWidth="200px">Trạng thái</th>
-        <th nzWidth="200px">Quyền</th>
-        <th nzWidth="200px">Ngày cập nhật</th>
-        <th></th>
+        <th nzWidth="200px" >Quyền</th>
+       
+        <th nzWidth="80px"></th>
       </tr>
     </thead>
     <tbody>
@@ -56,8 +56,8 @@
         <td>{{ data.dateBirth | date : "dd/MM/yyyy" }}</td>
         <td>{{ data.isLockoutText }}</td>
         <td>{{ data.address }}</td>
-        <td>{{ data.dateModify | date : "dd/MM/yyyy HH:mm" }}</td>
-        <td>
+  
+        <td style="text-align: center;">
           <a
             href="javascript:void(0)"
             nz-tooltip
@@ -82,12 +82,14 @@
     </tbody>
   </nz-table>
   <div nz-row>
-    <div nz-col nzSpan="24" style="text-align: right; :10px ">
+    <div nz-col nzSpan="24" style="text-align:center ;right:10px ">
       <nz-pagination
         [nzPageIndex]="page"
         [nzPageSize]="pageSize"
         [nzTotal]="totalRecord"
         nzShowSizeChanger
+        (nzPageSizeChange)="changePageSize($event)"
+        (nzPageIndexChange)="changePageIndex($event)"
       ></nz-pagination>
     </div>
   </div>

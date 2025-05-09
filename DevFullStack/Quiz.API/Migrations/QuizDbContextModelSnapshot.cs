@@ -102,6 +102,12 @@ namespace Quiz.API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("QuestionLevel")
+                        .HasColumnType("int");
+
+                    b.Property<int>("QuestionType")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("Questions");
@@ -126,13 +132,17 @@ namespace Quiz.API.Migrations
                     b.Property<DateTime>("DateModify")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
                     b.Property<Guid>("ModifyUserId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("TopicName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

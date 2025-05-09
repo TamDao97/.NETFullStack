@@ -28,13 +28,6 @@ namespace Quiz.API.Services
 
         public async Task<Response<User>> Create(UserDto request)
         {
-            //Generate mã
-            string code;
-            do
-            {
-                code = Utils.GenerateUniqueCode(Constants.Prefix.User);
-            } while (_dbContext.Users.AsNoTracking().Any(r => r.Code == code));
-
             //Mô tả:
             //1.UserName là unique
             //2.Code là unique
@@ -44,9 +37,6 @@ namespace Quiz.API.Services
                 return Response<User>.Error(StatusCode.InternalServerError, "Username đã tồn tại trên hệ thống!");
             }
 
-<<<<<<< HEAD
-            if (!Regex.IsMatch(request.PassWord, Constants.PassWordRegex))
-=======
             //if (!Regex.IsMatch(request.PassWord, Constants.PassWordRegex))
             //{
             //    return Response<User>.Error(StatusCode.InternalServerError, "Mật khẩu phải có ít nhất một ký tự đặc biệt!");
@@ -55,7 +45,6 @@ namespace Quiz.API.Services
             //GenCode
             string code;
             do
->>>>>>> 01dc023bf5e8f8d801636f87f68cbd453e858008
             {
                 code = Utils.GenCodeUnique("US");
             } while (_dbContext.Users.AsNoTracking().Any(r => r.Code == code));
@@ -72,6 +61,7 @@ namespace Quiz.API.Services
                 PasswordHash = request.PassWord,
                 IsLockout = true,
                 DateCreated = DateTime.Now,
+                DateModify = DateTime.Now,
             };
 
             _dbContext.Users.Add(user);
@@ -102,7 +92,7 @@ namespace Quiz.API.Services
             }
 
             var totalRecord = query.Select(r => r.Id).Count();
-            var datas = query.Skip((request.Page - 1) * request.PageSize)
+            var datas = query.OrderByDescending(r => r.DateModify).Skip((request.Page - 1) * request.PageSize)
                             .Take(request.PageSize)
                             .Select(r => new UserDto
                             {
@@ -129,7 +119,7 @@ namespace Quiz.API.Services
             {
                 Id = r.Id,
                 UserName = r.UserName,
-                //PassWord = r.PasswordHash,
+                PassWord = r.PasswordHash,
                 DisplayName = r.DisplayName,
                 Gender = r.Gender,
                 Address = r.Address,
@@ -145,11 +135,15 @@ namespace Quiz.API.Services
             var user = _dbContext.Users.FirstOrDefault(r => r.Id == request.Id);
 
             if (user is null) return Response<User>.Error(StatusCode.NotFound, StatusCode.NotFound.ToDescription());
-
+            if (_dbContext.Users.Any(r => r.Id != request.Id && r.UserName == request.UserName))
+            {
+                return Response<User>.Error(StatusCode.InternalServerError, "Chủ đề đã tồn tại trên hệ thống!");
+            }
             user.DisplayName = request.DisplayName;
             user.Gender = request.Gender;
             user.DateBirh = request.DateBirth;
             user.Address = request.Address;
+            user.DateModify = DateTime.Now;
             _dbContext.Users.Update(user);
             _dbContext.SaveChanges();
             return Response<User>.Success(user, "Thành công!");
