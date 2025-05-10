@@ -13,4 +13,22 @@ namespace Quiz.API.Dto
         public EnumQuestionType QuestionType { get; set; }
         public EnumQuestionLevel QuestionLevel { get; set; }
     }
+
+    public class QuestionCreateRequestDto
+    {
+        public Guid? Id { get; set; }
+        public Guid IdTopic { get; set; }
+        public string Content { get; set; }
+        public EnumQuestionType QuestionType { get; set; }
+        public EnumQuestionLevel QuestionLevel { get; set; }
+        public List<AnswerCreateRequestDto> Answers = new List<AnswerCreateRequestDto>();
+    }
+
+    public class AnswerCreateRequestDto
+    {
+        public Guid IdQuestion { get; set; }
+        public string Name { get; set; }
+        public string Content { get; set; }
+        public bool IsTrue { get; set; }
+    }
 }
