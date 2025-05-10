@@ -1,0 +1,44 @@
+.login-form {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 30px 40px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.login-form .ant-form-item {
+  margin-bottom: 16px;
+}
+
+.login-form-margin {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.login-form-button {
+  width: 100%;
+  font-weight: 500;
+}
+
+.login-form-forgot {
+  float: right;
+  font-size: 13px;
+  color: #1890ff;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.login-form-forgot:hover {
+  color: #40a9ff;
+}
+
+a {
+  color: #1890ff;
+  margin-left: 5px;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #40a9ff;
+}

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Reflection;
 
@@ -6,7 +6,6 @@ namespace Quiz.API.Common
 {
     public static class Utils
     {
-        // Chỉ khai báo random một lần
         private static Random random = new Random();
 
         #region Auth
@@ -23,11 +22,7 @@ namespace Quiz.API.Common
         }
         #endregion
 
-        #region Extension Methods
-        public static string GenerateUniqueCode(string prefix)
-        {
-            return $"{prefix}{random.Next(10000000, 100000000).ToString()}"; // 8 chữ số
-        }
+        #region extension methods
 
         public static string GenCodeUnique(string prefix)
         {
