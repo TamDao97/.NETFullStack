@@ -1,13 +1,15 @@
 import { QuestionComponent } from './pages/question/question.component';
+import { TopicComponent } from './pages/topic/topic.component';
 import { UserComponent } from './pages/user/user.component';
+import { LoginComponent } from './pages/auth/login/login.component';
 import { LayoutComponent } from './shared/components/layout/layout.component';
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  // {
-  //   path: 'login',
-  //   component: LoginComponent,
-  // },
+   {
+     path: 'login',
+    component: LoginComponent,
+   },
   {
     path: '',
     component: LayoutComponent, // Layout chính của ứng dụng
@@ -26,6 +28,11 @@ export const routes: Routes = [
         path: 'question',
         component: QuestionComponent,
       },
+      {
+        path: 'topic',
+        component: TopicComponent,
+      },
+      
     ],
   },
 ];

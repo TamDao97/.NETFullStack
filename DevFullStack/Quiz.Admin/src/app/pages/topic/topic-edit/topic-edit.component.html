@@ -1,0 +1,33 @@
+<form nz-form [formGroup]="frmGroup" nzLayout="vertical">
+  <nz-form-item>
+    <nz-form-label nzRequired nzFor="topicName">Tên chủ đề</nz-form-label>
+    <nz-form-control nzErrorTip="Vui lòng nhập dữ liệu.">
+      <input
+        nz-input
+        id="topicName"
+        formControlName="topicName"
+        placeholder="Tên tài khoản"
+      />
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label nzFor="description">Mô tả</nz-form-label>
+    <nz-form-control>
+      <nz-textarea-count [nzMaxCharacterCount]="100">
+        <textarea
+          nz-input
+          id="description"
+          rows="4"
+          formControlName="description"
+          placeholder="Mô tả"
+        ></textarea>
+      </nz-textarea-count>
+    </nz-form-control>
+  </nz-form-item>
+
+  <div *nzModalFooter>
+    <button nz-button nzType="default" (click)="onSave()">Lưu</button>
+    <button nz-button nzType="primary" (click)="onExit()">Thoát</button>
+  </div>
+</form>

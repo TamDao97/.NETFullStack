@@ -7,6 +7,7 @@ import en from '@angular/common/locales/en';
 import { FormsModule } from '@angular/forms';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { HttpClientModule } from '@angular/common/http';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 registerLocaleData(en);
 
@@ -17,5 +18,6 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom([FormsModule, HttpClientModule]),
     importProvidersFrom(), // Đảm bảo HttpClientModule được import nếu dùng HttpClient
     provideAnimationsAsync(),
+    importProvidersFrom(CKEditorModule),
   ],
 };

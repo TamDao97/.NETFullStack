@@ -52,7 +52,7 @@ namespace Quiz.API.Services
             var datas = _dbContext.Topics.Select(r => new DropdownBase<Guid>
             {
                 Id = r.Id,
-                Text = $"{r.Name} ({r.Code})"
+                Text = $"{r.TopicName} ({r.Code})"
             }).ToList();
             return Response<List<DropdownBase<Guid>>>.Success(datas, "Thành công!");
         }

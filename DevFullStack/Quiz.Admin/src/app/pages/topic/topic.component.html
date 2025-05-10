@@ -1,0 +1,80 @@
+<nz-card style="margin-bottom: 30px">
+  <div nz-row>
+    <div nz-col nzSpan="24">
+      <h3>Quản lý chủ đề</h3>
+    </div>
+  </div>
+  <div nz-row>
+    <div nz-col nzSpan="16"></div>
+    <div nz-col nzSpan="8" style="display: flex">
+      <input nz-input placeholder="Từ khóa tìm kiếm" [(ngModel)]="gridFilter.keyWord" />
+      <button nz-button nzType="primary" (click)="search()">Tìm kiếm</button>
+    </div>
+  </div>
+</nz-card>
+
+<nz-card class="mt-3">
+  <button nz-button nzType="primary" class="mb-3" (click)="onCreateTopic()">
+    Thêm mới
+  </button>
+  <nz-table  
+    #nzTable
+    [nzData]="gridData"
+    nzTableLayout="fixed"
+    nzFrontPagination="false">
+<thead>
+  <tr>
+    <th nzWidth="60px">STT</th>
+    <th nzWidth="200px"style="text-align: center;">Tên chủ đề</th>
+    <th nzWidth="140px">Số lượng câu hỏi</th> 
+    <th nzWidth="140px">Số lượng đáp án</th>
+    <th nzWidth="500px" style="text-align: center;">Mô tả</th>
+    <th>Ngày cập nhật</th>
+    <th style="text-align: center;"></th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let data of gridData; let i = index">
+    <td>{{ i + 1 }}</td>
+    <td>
+      {{ data.topicName }} ({{ data.code }})
+    </td>
+    <td>{{ data.questionCount }}</td>
+    <td>{{ data.answerCount }}</td>
+    <td style="text-align: center;">{{ data.description }}</td>
+    <td>{{ data.upDate}}</td>
+    <td style="text-align: center; justify-content: space-between; display: block; gap: 30px;">
+      <a 
+          href="javascript:void(0)"
+          nz-tooltip
+          nzTooltipTitle="Sửa"
+          (click)="onEditTopic(data.id)"
+        >
+          <i class="btn-action" nz-icon nzType="edit" nzTheme="outline"></i>
+        </a>
+        <a href="javascript:void(0)"
+           nz-tooltip nzTooltipTitle="Xóa"
+           (click)="onDeleteTopic(data.id)"
+        >
+          <i class="btn-action" nz-icon nzType="delete" nzTheme="outline"></i>
+        </a>
+        <!--<a href="javascript:void(0)" nz-tooltip nzTooltipTitle="Chi tiết">
+          <i class="btn-action" nz-icon nzType="eye" nzTheme="outline"></i>
+        </a> -->
+    </td>
+  </tr>
+</tbody>
+</nz-table>
+<div nz-row>
+  <div nz-col nzSpan="24" style="text-align:center; right :10px ">
+    <nz-pagination
+      [nzPageIndex]="page"
+      [nzPageSize]="pageSize"
+      [nzTotal]="totalRecord"
+      nzShowSizeChanger
+      (nzPageSizeChange)="changePageSize($event)"
+      (nzPageIndexChange)="changePageIndex($event)"
+    ></nz-pagination>
+  </div>
+</div>
+</nz-card>   

@@ -48,6 +48,11 @@ export class UserComponent extends BaseComponent implements OnInit {
   gridFilter = {
     keyWord: null,
   };
+  override page: number = 1;
+  override pageSize: number = 10;
+  override totalRecord: number = 0;
+  override gridData: any[] = [];
+  
 
   constructor(
     private _cd: ChangeDetectorRef,
@@ -65,7 +70,8 @@ export class UserComponent extends BaseComponent implements OnInit {
   override gridLoadData() {
     var filter = {
       ...this.gridFilter,
-      ...this.setPageDefault(),
+      page: this.page,
+      pageSize: this.pageSize,                                                                                                                                                                                            
     };
     this._userService.search(filter).subscribe((res) => {
       this.gridData = res.data.datas;
@@ -81,6 +87,17 @@ export class UserComponent extends BaseComponent implements OnInit {
   }
 
   search(): void {
+    this.gridLoadData();
+    this.gridLoadData();
+  }
+  changePageIndex(page: number): void {
+    this.page = page;
+    this.gridLoadData();
+  }
+
+  changePageSize(pageSize: number): void {
+    this.pageSize = pageSize;
+    this.page = 1;
     this.gridLoadData();
   }
 
