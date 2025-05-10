@@ -31,6 +31,8 @@ import { MultiChoiceComponent } from './answers/multi-choice/multi-choice.compon
 import { TrueOrFalseComponent } from './answers/true-or-false/true-or-false.component';
 import { OrderingOrSequencingComponent } from './answers/ordering-or-sequencing/ordering-or-sequencing.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+import { Base64UploadAdapter } from '../../../shared/editor/base64-upload';
 
 @Component({
   selector: 'app-question-edit',
@@ -180,64 +182,37 @@ export class QuestionEditComponent implements OnInit {
     this._modal.close();
   }
 
-  // public Editor = ClassicEditor;
-  // public editorData = '<p>Chào mừng bạn đến với CKEditor 5!</p>';
+  public Editor = ClassicEditor as any; // CKEditor instance
+  public editorData = '<p>Type here...</p>'; // Nội dung mẫu
 
-  // public editorConfig = {
-  //   placeholder: 'Nhập nội dung tại đây...',
-  //   toolbar: {
-  //     items: [
-  //       'undo',
-  //       'redo',
-  //       '|',
-  //       'exportPdf',
-  //       'exportWord',
-  //       '|',
-  //       'findAndReplace',
-  //       'selectAll',
-  //       '|',
-  //       'heading',
-  //       'styles',
-  //       '|',
-  //       'bold',
-  //       'italic',
-  //       'underline',
-  //       'strikethrough',
-  //       'subscript',
-  //       'superscript',
-  //       '|',
-  //       'fontSize',
-  //       'fontFamily',
-  //       'fontColor',
-  //       'fontBackgroundColor',
-  //       '|',
-  //       'alignment',
-  //       '|',
-  //       'bulletedList',
-  //       'numberedList',
-  //       'todoList',
-  //       '|',
-  //       'outdent',
-  //       'indent',
-  //       '|',
-  //       'link',
-  //       'imageUpload',
-  //       'insertTable',
-  //       'mediaEmbed',
-  //       '|',
-  //       'blockQuote',
-  //       'codeBlock',
-  //       '|',
-  //       'horizontalLine',
-  //       'specialCharacters',
-  //       'removeFormat',
-  //       '|',
-  //       'sourceEditing',
-  //     ],
-  //     shouldNotGroupWhenFull: true,
-  //   },
-  //   image: {
-  //     toolbar: ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side'],
-  //   },
-  // };
+  // Cấu hình CKEditor để sử dụng Base64
+  public editorConfig = {
+    toolbar: [
+      'heading',
+      '|',
+      'bold',
+      'italic',
+      'link',
+      'bulletedList',
+      'numberedList',
+      'blockQuote',
+      'imageUpload',
+    ], // Thêm imageUpload vào toolbar
+    image: {
+      toolbar: ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side'],
+    },
+    simpleUpload: {
+      uploadUrl: '', // Để trống, vì không sử dụng server upload
+    },
+    extraPlugins: [this.Base64UploadAdapterPlugin],
+  };
+
+  // Base64 Upload Adapter Plugin
+  Base64UploadAdapterPlugin(editor: any) {
+    editor.plugins.get('FileRepository').createUploadAdapter = (
+      loader: any
+    ) => {
+      return new Base64UploadAdapter(loader);
+    };
+  }
 }
