@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import {
   FormBuilder,
+  FormGroup,
   FormsModule,
   ReactiveFormsModule,
   Validators,
@@ -13,7 +14,7 @@ import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzInputModule } from 'ng-zorro-antd/input';
-import { NzModalModule, NzModalRef } from 'ng-zorro-antd/modal';
+import { NZ_MODAL_DATA, NzModalModule, NzModalRef } from 'ng-zorro-antd/modal';
 import { NzRadioModule } from 'ng-zorro-antd/radio';
 import { NzSelectModule } from 'ng-zorro-antd/select';
 import { NzTableModule } from 'ng-zorro-antd/table';
@@ -24,7 +25,10 @@ import { QuestionService } from '../../../services/question.service';
 import { IDropdown } from '../../../interfaces/IDropdown';
 import { CommonModule } from '@angular/common';
 import { ToastService } from '../../../shared/services/toast.service';
-import { StatusResponseTitle } from '../../../shared/utils/constants';
+import {
+  StatusResponseMessage,
+  StatusResponseTitle,
+} from '../../../shared/utils/constants';
 import { QuestionTypeEnums } from '../../../shared/utils/enums.enum';
 import { SingleChoiceComponent } from './answers/single-choice/single-choice.component';
 import { MultiChoiceComponent } from './answers/multi-choice/multi-choice.component';
@@ -71,6 +75,8 @@ export class QuestionEditComponent implements OnInit {
   lstTopic: IDropdown[] = [];
   lstQuestionType: IDropdown[] = [];
   lstQuestionLevel: IDropdown[] = [];
+
+  id: any = inject(NZ_MODAL_DATA);
   frmGroup: any;
   questionTypeEnums = QuestionTypeEnums;
   constructor(
@@ -94,7 +100,6 @@ export class QuestionEditComponent implements OnInit {
       idTopic: [null, [Validators.required]],
       questionType: [QuestionTypeEnums.SingleChoice, [Validators.required]],
       questionLevel: [null, [Validators.required]],
-      name: [null, [Validators.required]],
       content: [null, [Validators.required]],
       description: [null],
     });
@@ -174,37 +179,84 @@ export class QuestionEditComponent implements OnInit {
     });
   }
 
+  markFormGroupTouched(formGroup: FormGroup) {
+    for (const i in formGroup.controls) {
+      if (formGroup.controls.hasOwnProperty(i)) {
+        formGroup.controls[i].markAsDirty();
+        formGroup.controls[i].updateValueAndValidity();
+      }
+    }
+  }
+
   onSave() {
-    console.log(this.frmGroup.value);
+    if (!this.frmGroup.valid) {
+      this.markFormGroupTouched(this.frmGroup);
+      this._toastService.error(
+        StatusResponseTitle.ERROR,
+        'Vui lòng nhập dữ liệu bắt buộc!'
+      );
+      return;
+    }
+
+    let payload = {
+      ...this.frmGroup.value,
+      answers: this.answers,
+    };
+
+    if (!this.id) {
+      this._questionService.create(payload).subscribe(
+        (response) => {
+          if (response.status == 200) {
+            this._toastService.success(
+              StatusResponseTitle.SUCCESS,
+              StatusResponseMessage.ADD_SUCCESS
+            );
+            this.onExit();
+          } else {
+            this._toastService.error(
+              StatusResponseTitle.ERROR,
+              response.message
+            );
+          }
+        },
+        (error) => {
+          this._toastService.error('Lỗi', error);
+        }
+      );
+    } else {
+      this._questionService.update(payload).subscribe(
+        (response) => {
+          if (response.status == 200) {
+            this._toastService.success(
+              StatusResponseTitle.SUCCESS,
+              StatusResponseMessage.UPDATE_SUCCESS
+            );
+            this.onExit();
+          } else {
+            this._toastService.error(
+              StatusResponseTitle.ERROR,
+              response.message
+            );
+          }
+        },
+        (error) => {
+          this._toastService.error(StatusResponseTitle.ERROR, error);
+        }
+      );
+    }
   }
 
   onExit() {
     this._modal.close();
   }
 
-  public Editor = ClassicEditor as any; // CKEditor instance
-  public editorData = '<p>Type here...</p>'; // Nội dung mẫu
+  public Editor = ClassicEditor as any;
+  public editorData = '';
 
-  // Cấu hình CKEditor để sử dụng Base64
   public editorConfig = {
-    toolbar: [
-      'heading',
-      '|',
-      'bold',
-      'italic',
-      'link',
-      'bulletedList',
-      'numberedList',
-      'blockQuote',
-      'imageUpload',
-    ], // Thêm imageUpload vào toolbar
-    image: {
-      toolbar: ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side'],
-    },
     simpleUpload: {
-      uploadUrl: '', // Để trống, vì không sử dụng server upload
+      uploadUrl: '', // Không cần thiết nếu dùng base64
     },
-    extraPlugins: [this.Base64UploadAdapterPlugin],
   };
 
   // Base64 Upload Adapter Plugin

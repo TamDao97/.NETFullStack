@@ -10,6 +10,6 @@ namespace Quiz.API.Models
         public string Code { get; set; }
         public string Name { get; set; }
         public string Content { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
     }
 }
