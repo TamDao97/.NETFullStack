@@ -1,0 +1,66 @@
+/* Main Content */
+.intro {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: #222;
+}
+.intro h1 {
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1.5px;
+}
+.intro p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 650px;
+  margin: 0 auto;
+}
+.test-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgb(0 64 128 / 0.12);
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgb(0 64 128 / 0.24);
+}
+.card h3 {
+  font-size: 1.3rem;
+  color: #004080;
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+.card p {
+  flex-grow: 1;
+  font-size: 0.95rem;
+  color: #444;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+.card .btn-start {
+  align-self: flex-start;
+  background: #004080;
+  color: #fff;
+  padding: 0.45rem 1.25rem;
+  border-radius: 25px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  cursor: pointer;
+}
+.card .btn-start:hover {
+  background: #002a54;
+}
