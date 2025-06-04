@@ -1,0 +1,14 @@
+/* Footer */
+footer {
+  background: #002a54;
+  color: #bbb;
+  text-align: center;
+  padding: 1rem 1rem;
+  font-size: 0.875rem;
+  flex-shrink: 0;
+  user-select: none;
+}
+footer a {
+  color: #ffdd57;
+  text-decoration: underline;
+}

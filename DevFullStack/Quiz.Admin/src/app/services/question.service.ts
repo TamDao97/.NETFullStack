@@ -24,4 +24,37 @@ export class QuestionService {
   getListTopic(): Observable<any> {
     return this._http.get(`${environment.domainUrl}/api/Common/GetListTopic`);
   }
+
+  search(payload: any): Observable<any> {
+    return this._http.post(
+      `${environment.domainUrl}/api/Question/Search`,
+      payload
+    );
+  }
+
+  getById(id: any): Observable<any> {
+    return this._http.get(
+      `${environment.domainUrl}/api/Question/GetById/${id}`
+    );
+  }
+
+  create(payload: any): Observable<any> {
+    return this._http.post(
+      `${environment.domainUrl}/api/Question/Create`,
+      payload
+    );
+  }
+
+  update(payload: any): Observable<any> {
+    return this._http.post(
+      `${environment.domainUrl}/api/Question/Update`,
+      payload
+    );
+  }
+
+  delete(id: any): Observable<any> {
+    return this._http.delete(
+      `${environment.domainUrl}/api/Question/Delete/${id}`
+    );
+  }
 }

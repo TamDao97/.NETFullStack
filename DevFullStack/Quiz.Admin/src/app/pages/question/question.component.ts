@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzTableModule } from 'ng-zorro-antd/table';
@@ -10,6 +10,18 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzToolTipModule } from 'ng-zorro-antd/tooltip';
 import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 import { QuestionEditComponent } from './question-edit/question-edit.component';
+import { BaseComponent } from '../../shared/components/base/base.component';
+import { UserService } from '../../services/user.service';
+import { ToastService } from '../../shared/services/toast.service';
+import {
+  StatusResponseMessage,
+  StatusResponseTitle,
+} from '../../shared/utils/constants';
+import { CommonModule } from '@angular/common';
+import { NzTagModule } from 'ng-zorro-antd/tag';
+import { NzPaginationModule } from 'ng-zorro-antd/pagination';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
+import { QuestionService } from '../../services/question.service';
 
 interface DataItem {
   name: string;
@@ -33,49 +45,57 @@ interface DataItem {
     NzGridModule,
     NzToolTipModule,
     NzModalModule,
+    CommonModule,
+    NzPaginationModule,
+    NzTypographyModule,
+    NzTagModule,
   ],
 })
-export class QuestionComponent implements OnInit {
-  constructor(private _modalService: NzModalService) {}
+export class QuestionComponent extends BaseComponent implements OnInit {
+  gridFilter = {
+    keyWord: null,
+  };
 
-  ngOnInit() {}
+  constructor(
+    private _cd: ChangeDetectorRef,
+    private _modalService: NzModalService,
+    private _toastService: ToastService,
+    private _questionService: QuestionService
+  ) {
+    super();
+  }
 
-  searchValue = '';
-  visible = false;
-  listOfData: DataItem[] = [
-    {
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-    },
-    {
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-    },
-    {
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-    },
-    {
-      name: 'Jim Red',
-      age: 32,
-      address: 'London No. 2 Lake Park',
-    },
-  ];
-  listOfDisplayData = [...this.listOfData];
+  ngOnInit() {
+    this.gridLoadData();
+  }
 
-  reset(): void {
-    this.searchValue = '';
-    this.search();
+  override gridLoadData() {
+    var filter = {
+      ...this.gridFilter,
+      page: this.page,
+      pageSize: this.pageSize,
+    };
+    this._questionService.search(filter).subscribe((res) => {
+      this.gridData = res.data.datas;
+      this.totalRecord = res.data.totalRecord;
+      this._cd.detectChanges(); // ép render lại
+      console.log(this.gridData);
+    });
   }
 
   search(): void {
-    this.visible = false;
-    this.listOfDisplayData = this.listOfData.filter(
-      (item: DataItem) => item.name.indexOf(this.searchValue) !== -1
-    );
+    this.gridLoadData();
+  }
+
+  changePageIndex(page: number): void {
+    this.page = page;
+    this.gridLoadData();
+  }
+
+  changePageSize(pageSize: number): void {
+    this.pageSize = pageSize;
+    this.page = 1;
+    this.gridLoadData();
   }
 
   onCreateQuestion(): void {
@@ -85,4 +105,35 @@ export class QuestionComponent implements OnInit {
       nzWidth: '1350px',
     });
   }
+
+  onEditQuestion(id: any): void {
+    const modalRef = this._modalService.create({
+      nzWidth: '1000px',
+      nzTitle: 'Cập nhật câu hỏi',
+      nzContent: QuestionEditComponent,
+      nzData: id,
+    });
+    modalRef.afterClose.subscribe((rs) => {
+      console.log(rs);
+      this.gridLoadData();
+    });
+  }
+
+  onDeleteQuestion(id: any): void {
+    const confirmModal = this._modalService.confirm({
+      nzTitle: 'Bạn có chắc chắn muốn xóa dữ liệu?',
+      // nzContent: 'When clicked the OK button, this dialog will be closed after 1 second',
+      nzOnOk: () => {
+        this._questionService.delete(id).subscribe((res) => {
+          this.gridLoadData();
+          this._toastService.success(
+            StatusResponseTitle.SUCCESS,
+            StatusResponseMessage.DELETE_SUCCESS
+          );
+        });
+      },
+    });
+  }
+
+  reset() {}
 }
