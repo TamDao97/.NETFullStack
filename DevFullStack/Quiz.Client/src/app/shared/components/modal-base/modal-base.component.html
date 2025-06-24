@@ -1,0 +1,21 @@
+<div #modalElement class="modal fade" tabindex="-1" (click)="onBackdropClick($event)">
+  <div class="modal-dialog" [ngClass]="modalSizeClass">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ config.title }}</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="hide()"></button>
+      </div>
+      <div class="modal-body">
+        <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+      </div>
+      <div class="modal-footer" *ngIf="config.showCancelButton || config.showConfirmButton">
+        <button *ngIf="config.showCancelButton" class="btn btn-secondary" (click)="onCancelClick()">
+          {{ config.cancelText || 'Huỷ' }}
+        </button>
+        <button *ngIf="config.showConfirmButton" class="btn btn-primary" (click)="onConfirmClick()">
+          {{ config.confirmText || 'Xác nhận' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
