@@ -1,13 +1,14 @@
 ﻿using Quiz.API.Common;
 using Quiz.API.Data;
 using Quiz.API.Dto;
+using Quiz.API.Models;
 
 namespace Quiz.API.Services
 {
     public interface IAuthenService
     {
-        Task<object> LoginAsync(LoginRequestDto reqDto);
-        Task<object> RegisterAsync(RegisterRequestDto reqDto);
+        Task<Response<CurrentUserReponseDto>> LoginAsync(LoginRequestDto reqDto);
+        Task<Response<bool>> RegisterAsync(RegisterRequestDto reqDto);
         Task<object> ChangePasswordAsync(ChangePasswordRequestDto reqDto);
     }
 
@@ -27,19 +28,15 @@ namespace Quiz.API.Services
             throw new NotImplementedException();
         }
 
-        public async Task<object> LoginAsync(LoginRequestDto reqDto)
+        public async Task<Response<CurrentUserReponseDto>> LoginAsync(LoginRequestDto reqDto)
         {
             var user = _dbContext.Users.FirstOrDefault(r => r.UserName == reqDto.UserName);
 
-            if (user == null)
-            {
-                return Response<object>.Error(StatusCode.NotFound, StatusCode.NotFound.ToDescription(), null);
-            }
+            if (user is null)
+                return Response<CurrentUserReponseDto>.Error(StatusCode.InternalServerError, "Tài khoản không tồn tại trên hệ thống!");
 
             if (!Utils.VerifyPassword(user.PasswordHash, reqDto.Password))
-            {
-                return Response<object>.Error(StatusCode.InternalServerError, "Mật khẩu không chính xác!", null);
-            }
+                return Response<CurrentUserReponseDto>.Error(StatusCode.InternalServerError, "Thông tin đăng nhập không chính xác!");
 
             var token = JwtHelper.GenerateToken(reqDto.UserName, _configuration);
 
@@ -53,12 +50,27 @@ namespace Quiz.API.Services
                 RefreshToken = token.RefreshToken,
             };
 
-            return Response<object>.Success(currentUser, "Thành công!");
+            return Response<CurrentUserReponseDto>.Success(currentUser, StatusCode.Ok.ToDescription());
         }
 
-        public Task<object> RegisterAsync(RegisterRequestDto reqDto)
+        public async Task<Response<bool>> RegisterAsync(RegisterRequestDto req)
         {
-            throw new NotImplementedException();
+            //if (IsDuplicated(ref errorMess, nameof(req.UserName), req.UserName))
+            //    return Response<bool>.Error(StatusCode.InternalServerError, errorMess);
+
+            var user = new User
+            {
+                Id = Guid.NewGuid(),
+                UserName = req.UserName,
+                DisplayName = req.UserName,
+                //Email = req.UserName,
+                PasswordHash = Utils.HashPassword(req.Password)
+            };
+
+            await _dbContext.Users.AddAsync(user);
+            await _dbContext.SaveChangesAsync();
+
+            return Response<bool>.Success(true, StatusCode.Ok.ToDescription());
         }
     }
 }

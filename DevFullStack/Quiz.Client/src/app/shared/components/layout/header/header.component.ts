@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormGroup, FormArray } from '@angular/forms';
+import { ICurrentUser } from '../../../interfaces/ICurrentUser';
+import { AuthService } from '../../../utils/services/auth.service';
 import { TdBaseComponent } from '../../../utils/extends-components/td-base.component';
+import { UserChangePasswordComponent } from '../../../../pages/auth/user/user-change-password/user-change-password.component';
+import { UserProfileComponent } from '../../../../pages/auth/user/user-profile/user-profile.component';
+import { LoginComponent } from '../../../../pages/auth/login/login.component';
+import { RegisterComponent } from '../../../../pages/auth/register/register.component';
 
 @Component({
   selector: 'app-header',
@@ -9,38 +14,67 @@ import { TdBaseComponent } from '../../../utils/extends-components/td-base.compo
   standalone: true,
 })
 export class HeaderComponent extends TdBaseComponent implements OnInit {
+  currentUser!: ICurrentUser;
 
   constructor() {
     super();
   }
 
-  ngOnInit() { }
-
-  validateForm(form: AbstractControl): boolean {
-    if (form instanceof FormGroup || form instanceof FormArray) {
-      Object.values(form.controls).forEach((control) => {
-        this.validateForm(control); // Đệ quy cho control con
-      });
+  ngOnInit() {
+    const auth = AuthService.getAuthStorage(); // Lấy token từ localStorage
+    if (auth) {
+      this.currentUser = JSON.parse(auth) as ICurrentUser;
     }
-    form.markAsTouched({ onlySelf: true });
-    form.markAsDirty({ onlySelf: true });
-    form.updateValueAndValidity({ onlySelf: true });
-    return form.valid;
   }
 
-  onLogin() {
-    // Kiểm tra xem form có hợp lệ không
-    if (!this.validateForm(this.frmGroup)) return;
+  onLogin(): void {
+    this.openModal(
+      {
+        title: 'Đăng nhập',
+        width: 500,
+      },
+      LoginComponent
+    ).afterClose.subscribe((result: any) => {
+      // console.log(result);
+    });
+  }
 
-    let payload = this.frmGroup.value;
-    this._loginService.login(payload).subscribe((rs) => {
-      if (rs.status == StatusCode.Ok) {
-        AuthService.setAuthStorage(rs.data);
-        this._router.navigate(['/user']); // Điều hướng sau khi đăng nhập thành công
-        this._toastService.success(StatusResponseTitle.SUCCESS, rs.message);
-      } else {
-        this._toastService.error(StatusResponseTitle.ERROR, rs.message);
+  onRegister(): void {
+    this.openModal(
+      {
+        title: 'Đăng ký tài khoản',
+        width: 500,
+      },
+      RegisterComponent
+    ).afterClose.subscribe((result: any) => {
+      // console.log(result);
+    });
+  }
+
+  onEditProfile() {
+    this.openModal(
+      {
+        title: 'Cập nhật thông tin cá nhân',
+        width: 800,
+      },
+      UserProfileComponent,
+      {
+        params: { id: this.currentUser.id },
       }
+    ).afterClose.subscribe((result: any) => {
+      // console.log(result);
+    });
+  }
+
+  onChangePassword() {
+    this.openModal(
+      {
+        title: 'Đổi mật khẩu',
+        width: 500,
+      },
+      UserChangePasswordComponent
+    ).afterClose.subscribe((result: any) => {
+      // console.log(result);
     });
   }
 }

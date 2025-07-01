@@ -1,0 +1,38 @@
+<form nz-form [formGroup]="frmGroup" class="login-form" (ngSubmit)="onSubmit()">
+  <nz-form-item>
+    <nz-form-control nzHasFeedback [nzErrorTip]="emailErrorTpl">
+      <nz-input-group nzPrefixIcon="user">
+        <input type="text" nz-input formControlName="email" placeholder="Tài khoản" />
+      </nz-input-group>
+    </nz-form-control>
+    <ng-template #emailErrorTpl let-control>
+      <ng-container *ngIf="control.hasError('required')">
+        Vui lòng nhập email!
+      </ng-container>
+      <ng-container *ngIf="control.hasError('email')">
+        Email không hợp lệ!
+      </ng-container>
+    </ng-template>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control [nzErrorTip]="passwordErrorTpl">
+      <nz-input-group nzPrefixIcon="lock">
+        <input type="password" nz-input formControlName="password" placeholder="Mật khẩu" />
+      </nz-input-group>
+    </nz-form-control>
+    <ng-template #passwordErrorTpl let-control>
+      <ng-container *ngIf="control.hasError('required')">
+        Vui lòng nhập mật khẩu!
+      </ng-container>
+      <ng-container *ngIf="control.hasError('minlength')">
+        Mật khẩu phải có ít nhất 6 ký tự!
+      </ng-container>
+    </ng-template>
+  </nz-form-item>
+  <div class="row">
+    <div class="col-md-12 col-lg-12 text-right">
+      <button nz-button [nzType]="'primary'">Đăng nhập</button>
+    </div>
+  </div>
+</form>

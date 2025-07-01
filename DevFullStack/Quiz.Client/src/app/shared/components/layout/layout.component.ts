@@ -7,11 +7,11 @@ import { HeaderComponent } from './header/header.component';
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css'],
-  standalone: true,
   imports: [RouterOutlet, HeaderComponent, FooterComponent],
+  standalone: true,
 })
 export class LayoutComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }
