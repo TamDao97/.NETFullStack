@@ -1,0 +1,95 @@
+* {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #6b46c1, #b794f4);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1rem;
+      text-align: center;
+    }
+    .result-card {
+      background-color: rgba(255 255 255 / 0.1);
+      backdrop-filter: blur(12px);
+      padding: 3rem 2rem;
+      border-radius: 1rem;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(101, 52, 255, 0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+    .result-header {
+      font-size: 2.75rem;
+      font-weight: 700;
+      margin: 0;
+      color: #ebf4ff;
+      letter-spacing: -0.03em;
+      text-shadow: 0 2px 10px rgba(101, 52, 255, 0.8);
+    }
+    .score {
+      font-size: 5rem;
+      font-weight: 900;
+      margin: 0;
+      color: #fff;
+      text-shadow: 0 0 20px #d6bcfa;
+    }
+    .score-subtitle {
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: #ddd6fe;
+    }
+    .details {
+      font-size: 1.1rem;
+      color: #c4b5fd;
+      line-height: 1.5;
+    }
+    .details strong {
+      color: #e9d8fd;
+      font-weight: 700;
+    }
+    .button-home {
+      margin-top: 1rem;
+      background: #805ad5;
+      color: white;
+      border: none;
+      border-radius: 0.75rem;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      font-size: 1.125rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 8px 20px rgba(128,90,213,0.5);
+    }
+    .button-home:hover,
+    .button-home:focus-visible {
+      background-color: #6b46c1;
+      outline: none;
+      transform: scale(1.05);
+      box-shadow: 0 12px 28px rgba(107,70,193,0.7);
+    }
+    .button-home:active {
+      transform: scale(0.95);
+    }
+    @media (max-width: 480px) {
+      .result-card {
+        padding: 2rem 1.5rem;
+      }
+      .result-header {
+        font-size: 2rem;
+      }
+      .score {
+        font-size: 3rem;
+      }
+      .button-home {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.75rem;
+      }
+    }

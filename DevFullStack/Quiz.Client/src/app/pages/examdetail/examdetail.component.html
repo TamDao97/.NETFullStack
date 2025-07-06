@@ -1,0 +1,123 @@
+<div class="container">
+  <div class="exam-content">
+    <!-- Left: Questions Section -->
+    <div class="question-section-wrapper">
+      <div
+        class="question-section"
+        *ngFor="let item of examDetails; let i = index"
+        [id]="'question-' + i"
+      >
+        <div class="question-header">
+          <h3>Câu {{ i + 1 }}: {{ item.questionName }}</h3>
+          <span class="badge">{{ item.questionLevelText }}</span>
+          <!-- <span class="question-type-badge">{{ getQuestionTypeText(item.questionType) }}</span> -->
+        </div>
+
+        <!-- Answers Section -->
+       <div class="answers" [ngClass]="{ ordering: item.questionType === 3 }">
+  <!-- Sắp xếp -->
+  <div class="ordering-list" *ngIf="item.questionType === 3">
+    <div
+      class="ordering-item"
+      *ngFor="let ans of item.answers; let j = index"
+    >
+      <div class="ordering-content">
+        <span class="ordering-number">{{ j + 1 }}.</span>
+        <span class="answer-content">{{ ans.content }}</span>
+      </div>
+      <div class="ordering-actions">
+        <button
+          class="ordering-btn"
+          (click)="moveAnswerUp(item, j)"
+          [disabled]="j === 0"
+        >
+          ▲
+        </button>
+        <button
+          class="ordering-btn"
+          (click)="moveAnswerDown(item, j)"
+          [disabled]="j === item.answers.length - 1"
+        >
+          ▼
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Các loại còn lại -->
+  <div *ngIf="item.questionType !== 3">
+   <label
+  class="answer-option"
+  *ngFor="let ans of item.answers; let j = index"
+  [class.selected]="isAnswerSelected(item, ans.id)"
+>
+  <input
+    [type]="getInputType(item.questionType)"
+    [name]="'question_' + item.id"
+    [value]="ans.id"
+    [checked]="isAnswerSelected(item, ans.id)"
+    (change)="onSelectAnswer(item, ans.id)"
+  />
+  <span class="answer-letter">{{ getAnswerLetter(j) }}.</span>
+  <span class="answer-content">{{ ans.content }}</span>
+</label>
+
+  </div>
+</div>
+
+        <div class="question-actions">
+          <button
+            class="doubt-btn"
+            (click)="toggleDoubt(i)"
+            [class.active]="isDoubtful(i)"
+          >
+            {{ isDoubtful(i) ? "Bỏ đánh dấu phân vân" : "Đánh dấu phân vân" }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Overview Section -->
+    <div class="overview-section">
+      <div class="timer-section">
+        <h3>Thời gian làm bài</h3>
+        <div class="timer">{{ minutes }}:{{ seconds }}</div>
+      </div>
+
+      <div class="progress-info">
+        <p>Đã làm: {{ getAnsweredCount() }}/{{ examDetails.length }} câu</p>
+      </div>
+
+      <div class="question-status">
+        <div
+          *ngFor="let q of examDetails; let i = index"
+          class="status-circle"
+          (click)="scrollToQuestion(i)"
+          [class.active]="i === currentQuestionIndex"
+          [class.doubtful]="isDoubtful(i)"
+          [class.done]="isQuestionAnswered(q)"
+        >
+          {{ i + 1 }}
+        </div>
+      </div>
+
+      <div class="legend">
+        <div class="legend-item"><span class="dot dot-done"></span> Đã làm</div>
+        <div class="legend-item">
+          <span class="dot dot-notdone"></span> Chưa làm
+        </div>
+        <div class="legend-item">
+          <span class="dot dot-doubtful"></span> Phân vân
+        </div>
+      </div>
+
+      <button
+        class="submit-btn"
+        (click)="submitExam()"
+        [disabled]="isSubmitted"
+      >
+        Nộp bài
+      </button>
+    </div>
+  </div>
+</div>

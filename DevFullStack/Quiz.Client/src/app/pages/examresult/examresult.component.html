@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kết quả bài thi</title>
+  <style>
+    /* Base reset */
+    /* * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #6b46c1, #b794f4);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 1rem;
+      text-align: center;
+    }
+    .result-card {
+      background-color: rgba(255 255 255 / 0.1);
+      backdrop-filter: blur(12px);
+      padding: 3rem 2rem;
+      border-radius: 1rem;
+      max-width: 480px;
+      width: 100%;
+      box-shadow: 0 20px 40px rgba(101, 52, 255, 0.5);
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+    }
+    .result-header {
+      font-size: 2.75rem;
+      font-weight: 700;
+      margin: 0;
+      color: #ebf4ff;
+      letter-spacing: -0.03em;
+      text-shadow: 0 2px 10px rgba(101, 52, 255, 0.8);
+    }
+    .score {
+      font-size: 5rem;
+      font-weight: 900;
+      margin: 0;
+      color: #fff;
+      text-shadow: 0 0 20px #d6bcfa;
+    }
+    .score-subtitle {
+      font-weight: 600;
+      font-size: 1.125rem;
+      color: #ddd6fe;
+    }
+    .details {
+      font-size: 1.1rem;
+      color: #c4b5fd;
+      line-height: 1.5;
+    }
+    .details strong {
+      color: #e9d8fd;
+      font-weight: 700;
+    }
+    .button-home {
+      margin-top: 1rem;
+      background: #805ad5;
+      color: white;
+      border: none;
+      border-radius: 0.75rem;
+      padding: 1rem 2rem;
+      font-weight: 700;
+      font-size: 1.125rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      box-shadow: 0 8px 20px rgba(128,90,213,0.5);
+    }
+    .button-home:hover,
+    .button-home:focus-visible {
+      background-color: #6b46c1;
+      outline: none;
+      transform: scale(1.05);
+      box-shadow: 0 12px 28px rgba(107,70,193,0.7);
+    }
+    .button-home:active {
+      transform: scale(0.95);
+    }
+    @media (max-width: 480px) {
+      .result-card {
+        padding: 2rem 1.5rem;
+      }
+      .result-header {
+        font-size: 2rem;
+      }
+      .score {
+        font-size: 3rem;
+      }
+      .button-home {
+        width: 100%;
+        font-size: 1rem;
+        padding: 0.75rem;
+      }
+    } */
+  </style>
+</head>
+<body>
+  <div class="result-page">
+    <!-- Summary Card -->
+    <article class="result-card" role="main" aria-labelledby="resultTitle">
+      <h1 class="result-header" id="resultTitle">Kết quả bài thi</h1>
+      <p class="score" aria-label="Điểm số">{{ score }}/10</p>
+      <p class="score-subtitle" aria-label="Số câu đúng trên tổng số câu">
+        {{ correctCount }} câu đúng trên {{ total }} câu
+      </p>
+      <p class="details" aria-label="Thời gian làm bài">
+        <strong>Thời gian làm bài:</strong>
+        {{ (timeUsed / 60) | number : "1.0-0" }} phút
+        {{ (timeUsed % 60) | number : "1.0-0" }} giây
+      </p>
+      <button
+        type="button"
+        class="button-home"
+        aria-label="Quay lại trang chủ"
+        [routerLink]="['/home']"
+      >
+        Quay lại trang chủ
+      </button>
+    </article>
+
+    <!-- Detailed Review Section -->
+    <section class="review-section" *ngIf="examDetails.length > 0">
+      <h2 class="review-header">Xem lại chi tiết</h2>
+      <div class="question-review-card" *ngFor="let q of examDetails; let i = index">
+        <div class="review-question-header">
+          <h4>Câu {{ i + 1 }}: {{ q.questionName }}</h4>
+          <span class="status-badge" [class.correct]="isCorrect(q)" [class.incorrect]="!isCorrect(q)">
+            {{ isCorrect(q) ? 'Trả lời đúng' : 'Trả lời sai' }}
+          </span>
+        </div>
+        <div class="review-answers">
+          <div class="answer-block user-answer" [class.incorrect-answer]="!isCorrect(q)">
+            <strong>Đáp án của bạn:</strong>
+            <ul>
+              <li *ngFor="let ans of getUserAnswerContent(q)">{{ ans }}</li>
+            </ul>
+          </div>
+          <div class="answer-block correct-answer" *ngIf="!isCorrect(q)">
+            <strong>Đáp án đúng:</strong>
+             <ul>
+              <li *ngFor="let ans of getCorrectAnswerContent(q)">{{ ans }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
+

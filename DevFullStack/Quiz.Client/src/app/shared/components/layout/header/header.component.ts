@@ -1,80 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { ICurrentUser } from '../../../interfaces/ICurrentUser';
-import { AuthService } from '../../../utils/services/auth.service';
-import { TdBaseComponent } from '../../../utils/extends-components/td-base.component';
-import { UserChangePasswordComponent } from '../../../../pages/auth/user/user-change-password/user-change-password.component';
-import { UserProfileComponent } from '../../../../pages/auth/user/user-profile/user-profile.component';
-import { LoginComponent } from '../../../../pages/auth/login/login.component';
-import { RegisterComponent } from '../../../../pages/auth/register/register.component';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { IDropdown } from '../../../../interfaces/IDropdown';
+import { IResponse } from '../../../../interfaces/IResponse';
+import { HeaderService } from '../../../../services/header.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
   standalone: true,
+  imports: [CommonModule, RouterModule,],
 })
-export class HeaderComponent extends TdBaseComponent implements OnInit {
-  currentUser!: ICurrentUser;
+export class HeaderComponent implements OnInit {
+  topics: IDropdown[] = [];
+  constructor(private _headerService: HeaderService) {}
 
-  constructor() {
-    super();
-  }
-
-  ngOnInit() {
-    const auth = AuthService.getAuthStorage(); // Lấy token từ localStorage
-    if (auth) {
-      this.currentUser = JSON.parse(auth) as ICurrentUser;
-    }
-  }
-
-  onLogin(): void {
-    this.openModal(
-      {
-        title: 'Đăng nhập',
-        width: 500,
-      },
-      LoginComponent
-    ).afterClose.subscribe((result: any) => {
-      // console.log(result);
-    });
-  }
-
-  onRegister(): void {
-    this.openModal(
-      {
-        title: 'Đăng ký tài khoản',
-        width: 500,
-      },
-      RegisterComponent
-    ).afterClose.subscribe((result: any) => {
-      // console.log(result);
-    });
-  }
-
-  onEditProfile() {
-    this.openModal(
-      {
-        title: 'Cập nhật thông tin cá nhân',
-        width: 800,
-      },
-      UserProfileComponent,
-      {
-        params: { id: this.currentUser.id },
+  ngOnInit():void  {
+     const id = {}; 
+    this._headerService.getListTopic(id).subscribe((res: IResponse<IDropdown[]>) => {
+      console.log('Response:', res);
+      if (res.status == 200) {
+        this.topics = res.data;
       }
-    ).afterClose.subscribe((result: any) => {
-      // console.log(result);
     });
   }
+  goToLogin() {
+    // điều hướng đến trang đăng nhập
+  }
 
-  onChangePassword() {
-    this.openModal(
-      {
-        title: 'Đổi mật khẩu',
-        width: 500,
-      },
-      UserChangePasswordComponent
-    ).afterClose.subscribe((result: any) => {
-      // console.log(result);
-    });
+  goToRegister() {
+    // điều hướng đến trang đăng ký
   }
 }

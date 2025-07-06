@@ -1,0 +1,305 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.exam-content {
+  display: flex;
+  gap: 20px;
+}
+
+/* Question Section */
+.question-section-wrapper {
+  flex: 1;
+  max-width: 800px;
+}
+
+.question-section {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.question-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.question-header h3 {
+  margin: 0;
+  flex: 1;
+}
+
+.badge {
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.question-type-badge {
+  background: #f5f5f5;
+  color: #616161;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.answer-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.answer-option:hover {
+  background: #f5f5f5;
+}
+
+.answer-content {
+  flex: 1;
+}
+
+/* Ordering Question Styles */
+.ordering {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.ordering-instructions {
+  color: #666;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.ordering-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ordering-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: white;
+  padding: 12px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.ordering-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+}
+
+.ordering-number {
+  background: #e3f2fd;
+  color: #1976d2;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.9em;
+}
+
+.ordering-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.ordering-btn {
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.ordering-btn:hover:not(:disabled) {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.ordering-btn:disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Overview Section */
+.overview-section {
+  width: 300px;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.timer-section {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.timer {
+  font-size: 2em;
+  font-weight: bold;
+  color: #1976d2;
+}
+
+.progress-info {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.question-status {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.status-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.status-circle:hover {
+  background: #e3f2fd;
+}
+
+.status-circle.active {
+  background: #1976d2;
+  color: white;
+}
+
+.status-circle.done {
+  background: #1e88e5;
+  color: white;
+}
+
+.status-circle.doubtful {
+  background: #ff9800;
+  color: white;
+}
+
+.legend {
+  margin-bottom: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot-done {
+  background: #4caf50;
+}
+
+.dot-notdone {
+  background: #f5f5f5;
+}
+
+.dot-doubtful {
+  background: #ff9800;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: all 0.2s;
+}
+
+.submit-btn:hover {
+  background: #1565c0;
+}
+
+.submit-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.doubt-btn {
+  background: none;
+  border: 1px solid #ff9800;
+  color: #ff9800;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.doubt-btn:hover {
+  background: #fff3e0;
+}
+
+.doubt-btn.active {
+  background: #ff9800;
+  color: white;
+}
+.answer-letter {
+  font-weight: bold;
+  margin-right: 6px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .exam-content {
+    flex-direction: column;
+  }
+
+  .overview-section {
+    width: 100%;
+    position: static;
+  }
+
+  .question-status {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

@@ -1,26 +1,18 @@
-<!-- Header -->
-<header class="bg-white shadow-md">
-  <div class="container mx-auto px-6 py-4">
-    <div class="flex items-center justify-between">
-      <div class="flex items-center">
-        <div class="w-10 h-10 rounded-full bg-indigo-600 flex items-center justify-center text-white font-bold mr-3">
-          TTO
-        </div>
-        <h1 class="text-xl font-bold text-gray-800">Thi Trực Tuyến</h1>
-      </div>
-      <nav class="hidden md:flex space-x-8">
-        <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium">Trang chủ</a>
-        <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium">Bài thi</a>
-        <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium">Kết quả</a>
-        <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium">Hướng dẫn</a>
-      </nav>
-      <div class="flex items-center space-x-4">
-        <button class="px-4 py-2 text-indigo-600 font-medium rounded hover:bg-indigo-50" (click)="onLogin()">Đăng
-          nhập</button>
-        <button class="px-4 py-2 bg-indigo-600 text-white font-medium rounded hover:bg-indigo-700 transition"
-          (click)="onRegister()">Đăng
-          ký</button>
-      </div>
+<header>
+  <div class="container header-inner">
+    <div class="logo">
+      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055646.png" alt="Logo hệ thống thi" />
     </div>
+    <nav class="menu" aria-label="Thanh menu chính">
+      <ul>
+        <li><a routerLink="/">Trang chủ</a></li>
+        <li *ngFor="let topic of topics">
+          <a [routerLink]="['/examinfo', topic.id]">{{ topic.text }}</a>
+        </li>
+        <li><a routerLink="/lien-he">Liên hệ</a></li>
+      </ul>
+    </nav>
+    <button (click)="goToLogin()">Đăng nhập</button>
+    <button (click)="goToRegister()">Đăng ký</button>
   </div>
 </header>

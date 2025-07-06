@@ -1,0 +1,25 @@
+
+  <section class="container quiz-info-card" role="region" aria-labelledby="quizTitle" tabindex="0">
+  <h2 class="quiz-title" id="quizTitle">
+    <a [routerLink]="['/mo-ta', examInfo.id]">{{ examInfo.description }}</a>
+  </h2>
+
+  <p class="quiz-details">
+    <strong><a [routerLink]="['/chu-de', examInfo.id]">{{ examInfo.topicName }}</a></strong>
+  </p>
+
+  <p class="quiz-details">
+    <a [routerLink]="['/so-cau', examInfo.id]">
+      <strong>Số câu:</strong> {{ examInfo.totalQuestion }}
+    </a>
+    <br />
+    <a [routerLink]="['/thoi-gian', examInfo.id]">
+      <strong>Thời gian làm bài:</strong> {{ examInfo.totalTime }}
+    </a>
+  </p>
+
+  <button class="start-button" type="button" aria-label="Bắt đầu làm bài trắc nghiệm" (click)="startExam()">
+    BẮT ĐẦU LÀM BÀI
+  </button>
+</section>
+
