@@ -8,9 +8,9 @@ import { environment } from '../../env.development';
 })
 export class ExaminfoService {
 
-constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   getExamInfoByIdTopic(id: any): Observable<any> {
-    return this._http.get(`${environment.domainUrl}/api/Topic/GetExamInfoByIdTopic/${id}`);
+    return this._http.get(`${environment.apiUrl}/api/Topic/GetExamInfoByIdTopic/${id}`);
   }
 }

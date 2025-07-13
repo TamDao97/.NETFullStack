@@ -6,10 +6,9 @@ import { environment } from '../../env.development';
   providedIn: 'root'
 })
 export class ExamdetailService {
-
-constructor(private _http: HttpClient) { }
+  constructor(private _http: HttpClient) { }
   getExamDetailByIdTopic(id: any): Observable<any> {
-    return this._http.get(`${environment.domainUrl}/api/Topic/GetExamDetailByIdTopic/${id}`);
+    return this._http.get(`${environment.apiUrl}/api/Topic/GetExamDetailByIdTopic/${id}`);
   }
 
 }

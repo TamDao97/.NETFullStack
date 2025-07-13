@@ -4,13 +4,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { ExaminfoComponent } from './pages/examinfo/examinfo.component';
 import { ExamdetailComponent } from './pages/examdetail/examdetail.component';
 import { ExamresultComponent } from './pages/examresult/examresult.component';
+import { LoginComponent } from './pages/auth/login/login.component';
 
 
 export const routes: Routes = [
-  //   {
-  //     path: 'login',
-  //     component: LoginComponent,
-  //   },
   {
     path: '',
     component: LayoutComponent, // Layout chính của ứng dụng
@@ -19,6 +16,10 @@ export const routes: Routes = [
         path: '',
         redirectTo: 'home',
         pathMatch: 'full',
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
       },
       {
         path: 'home',
@@ -30,11 +31,11 @@ export const routes: Routes = [
       },
       {
         path: 'examdetail/:id',
-        component:ExamdetailComponent,
+        component: ExamdetailComponent,
       },
       {
         path: 'examresult/:id',
-        component:ExamresultComponent,
+        component: ExamresultComponent,
       }
     ],
   },

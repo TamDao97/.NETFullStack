@@ -1,0 +1,71 @@
+<div class="login-container">
+  <div class="login-card">
+    <div class="login-header">
+      <div class="system-name">HỆ THỐNG THI THỬ TRỰC TUYẾN</div>
+      <p class="system-slogan">Nền tảng ôn luyện và đánh giá kiến thức</p>
+    </div>
+
+    <div class="login-body">
+      <form [formGroup]="frmGroup">
+        <div class="mb-3">
+          <label for="email" class="form-label">Tên đăng nhập</label>
+          <div class="input-group">
+            <span class="input-group-text">
+              <i class="fa-solid fa-user"></i>
+            </span>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Nhập tên đăng nhập"
+              formControlName="email"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Mật khẩu</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="fas fa-lock"></i></span>
+            <input
+              type="password"
+              class="form-control"
+              placeholder="Nhập mật khẩu"
+              formControlName="password"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="rememberMe" />
+            <label class="form-check-label" for="rememberMe"
+              >Ghi nhớ đăng nhập</label
+            >
+          </div>
+          <a href="#" class="forgot-password">Quên mật khẩu?</a>
+        </div>
+
+        <button type="submit" class="btn btn-login mb-3" (click)="onLogin()">
+          <i class="fas fa-sign-in-alt me-2"></i> ĐĂNG NHẬP
+        </button>
+
+        <div class="divider">hoặc đăng nhập bằng</div>
+
+        <div class="social-login">
+          <button type="button" class="btn btn-google">
+            <i class="fab fa-google me-2"></i> Google
+          </button>
+          <button type="button" class="btn btn-facebook">
+            <i class="fab fa-facebook-f me-2"></i> Facebook
+          </button>
+        </div>
+      </form>
+    </div>
+
+    <div class="login-footer">
+      Bạn chưa có tài khoản? <a href="#">Đăng ký ngay</a>
+    </div>
+  </div>
+</div>

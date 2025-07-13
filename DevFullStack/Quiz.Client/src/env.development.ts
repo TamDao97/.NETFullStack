@@ -1,3 +1,6 @@
 export const environment = {
-  domainUrl: 'http://localhost:5110',
+  production: false,
+  apiUrl: 'https://localhost:7246/api',
+  //   featureFlag: true,
+  //   loggingEnabled: true,
 };

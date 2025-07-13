@@ -18,7 +18,7 @@ export class ExaminfoComponent implements OnInit, OnDestroy {
     private _examinfoService: ExaminfoService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.paramSub = this.route.paramMap.subscribe(params => {
@@ -26,7 +26,7 @@ export class ExaminfoComponent implements OnInit, OnDestroy {
       if (id) {
         this._examinfoService
           .getExamInfoByIdTopic(id)
-          .subscribe((res: IResponse<any>) => {
+          .subscribe((res: IResponse) => {
             if (res.status == 200) {
               this.examInfo = res.data;
               console.log('Response:', this.examInfo);

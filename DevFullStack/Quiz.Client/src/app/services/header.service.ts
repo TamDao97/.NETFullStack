@@ -7,9 +7,9 @@ import { environment } from '../../env.development';
   providedIn: 'root'
 })
 export class HeaderService {
-  constructor(private _http: HttpClient) {}
+  constructor(private _http: HttpClient) { }
 
   getListTopic(id: any): Observable<any> {
-    return this._http.get(`${environment.domainUrl}/api/Common/GetListTopic`, id);
+    return this._http.get(`${environment.apiUrl}/api/Common/GetListTopic`, id);
   }
 }

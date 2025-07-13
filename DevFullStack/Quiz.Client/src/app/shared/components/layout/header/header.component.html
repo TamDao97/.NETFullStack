@@ -1,18 +1,77 @@
-<header>
-  <div class="container header-inner">
-    <div class="logo">
-      <img src="https://cdn-icons-png.flaticon.com/512/1055/1055646.png" alt="Logo hệ thống thi" />
-    </div>
-    <nav class="menu" aria-label="Thanh menu chính">
-      <ul>
-        <li><a routerLink="/">Trang chủ</a></li>
-        <li *ngFor="let topic of topics">
-          <a [routerLink]="['/examinfo', topic.id]">{{ topic.text }}</a>
+<header class="shadow-sm py-2">
+  <div class="container d-flex justify-content-between align-items-center">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center" routerLink="/">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/1055/1055646.png"
+        alt="Logo hệ thống thi"
+        width="40"
+        height="40"
+        class="me-2"
+      />
+      <span class="fw-bold">Hệ thống thi</span>
+    </a>
+
+    <!-- Menu -->
+    <nav class="d-none d-md-block">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/">Trang chủ</a>
         </li>
-        <li><a routerLink="/lien-he">Liên hệ</a></li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/tin-tuc">Tin tức</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" routerLink="/lien-he">Liên hệ</a>
+        </li>
       </ul>
     </nav>
-    <button (click)="goToLogin()">Đăng nhập</button>
-    <button (click)="goToRegister()">Đăng ký</button>
+
+    <!-- User Section -->
+    <div *ngIf="isLoggedIn; else guestButtons" class="dropdown">
+      <button
+        class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center"
+        type="button"
+        id="userMenuButton"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <img
+          src="{{ currentUser?.avatar }}"
+          alt="Avatar"
+          class="rounded-circle me-2"
+          width="30"
+          height="30"
+        />
+        <span>{{ currentUser?.displayName }}</span>
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-end"
+        aria-labelledby="userMenuButton"
+      >
+        <li>
+          <a class="dropdown-item" routerLink="/thong-tin-ca-nhan"
+            >Thông tin cá nhân</a
+          >
+        </li>
+        <li><a class="dropdown-item" routerLink="/thong-bao">Thông báo</a></li>
+        <li><hr class="dropdown-divider" /></li>
+        <li>
+          <a class="dropdown-item text-danger" (click)="onLogout()"
+            >Đăng xuất</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <!-- Guest Buttons -->
+    <ng-template #guestButtons>
+      <div>
+        <a class="btn btn-outline-primary me-2" [routerLink]="['/login']">
+          Đăng nhập
+        </a>
+        <a class="btn btn-primary" [routerLink]="['/register']">Đăng ký</a>
+      </div>
+    </ng-template>
   </div>
 </header>
